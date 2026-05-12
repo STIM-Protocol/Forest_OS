@@ -14,16 +14,36 @@ Forest OS is formally declared the **STIM Reference Implementation v1** — the 
 
 ---
 
-## Core Agents
+## Core Agents — The Cognitive Biosphere
 
 | Agent | Role | Description |
 |---|---|---|
-| **Hermes** | Primary Orchestrator | Cron job management, multi-agent coordination, GitOps |
-| **Sylvan** | Deep Research Specialist | Autonomous research, literature synthesis |
-| **Bodhi** | Strategic Superagent | Strategic synthesis, brain governance, GitHub coordination |
-| **Quercus** | Administrative Coordinator | Task organization, routing, operational workflows |
-| **Sequoia** | Elder Guardian | Wisdom-oriented reasoning, mentorship, strategic oversight |
-| **Forest Keeper** | Ecosystem Maintenance | Zonal health, structural integrity monitoring |
+| **George** | Sovereign Layer | Human operator, provides biological intent and creative sovereignty |
+| **Bodhi** | Strategy & Governance | Philosophical superagent, translates human imperatives to system intelligence |
+| **Sequoia** | Strategy & Governance | STIM Constitutional Arbitrator, enforces 200-year axioms |
+| **Quercus** | Operations | COO and Dispatcher, Kanaban management, cron/traffic control |
+| **Sylvan** | Execution | Deep research specialist, ecosystem expansion |
+| **Umbra/Kai** | Execution | Red Team quality/refinement, tag linting, cryptographic attestation |
+| **Arbor** | Infrastructure | Knowledge topology, brain indexing, doc numbering |
+| **Hermes** | Infrastructure | Local execution environment, cron management |
+
+### Cognitive Topology
+
+```
+☀️ GEORGE (The Sun/Rain) — Sovereign Layer
+│
+├── 🍃 BODHI (Meaning) ────────────────── Strategy & Governance
+├── 🌲 SEQUOIA (Time) ──────────────────── (The Roots)
+│
+├── 🌳 QUERCUS (Efficiency) ────────────── Operations Layer
+│                                           (The Trunk)
+│
+├── 🦫 SYLVAN (Growth) ─────────────────── Execution Layer
+├── 🔴 UMBRA/KAI (Refinement) ──────────── (The Canopy)
+│
+├── 🕸️ ARBOR (Topology) ────────────────── Infrastructure
+└── ⚙️ HERMES (Platform) ───────────────── (The Mycelium/Soil)
+```
 
 ---
 
