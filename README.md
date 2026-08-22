@@ -222,6 +222,7 @@ See [CONTRIBUTING.md](CONTRIBUTING.md) for full protocol requirements.
 |---|---|
 | [stim-core](https://github.com/STIM-Protocol/stim-core) | Loop 1 metrics + Protocol 0 hardware root of trust |
 | [stim-guard](https://github.com/STIM-Protocol/stim-guard) | Epistemic Sieve Membrane + Adrenaline Protocol |
+| [mycelial-brain-mcp](https://github.com/STIM-Protocol/mycelial-brain-mcp) | MCP server powering Forest OS memory |
 | [white-paper](https://github.com/STIM-Protocol/white-paper) | Full STIM-AI v7.0011 specification |
 | [gpd-framework](https://github.com/STIM-Protocol/gpd-framework) | Get Physics Done — computational physics substrate |
 
