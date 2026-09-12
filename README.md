@@ -5,7 +5,6 @@
 [![Reference Implementation](https://img.shields.io/badge/Reference-Implementation_v1-brightgreen?style=flat)](https://github.com/STIM-Protocol/Forest_OS)
 [![Port 5483 LIVE](https://img.shields.io/badge/Workbench-Port_5483_(LIVE)-7fbbb3?style=flat)](http://localhost:5483)
 [![License: MIT](https://img.shields.io/badge/License-MIT-green.svg)](https://github.com/STIM-Protocol/Forest_OS/blob/main/LICENSE)
-[![Doc-414 Compliant](https://img.shields.io/badge/Doc--414-0_em_dashes-a7c080?style=flat)](#style-and-governance)
 [![Tests: 20 Passing](https://img.shields.io/badge/Tests-20_Passed-83c092?style=flat)](#automated-test-verification)
 
 Forest OS is the sovereign computational operating system for ecological land stewards, foresters, consulting arborists, and canopy researchers. It functions simultaneously as an **autonomous, biomimetic AI knowledge organism** and as a **heavy scientific field-to-lab workstation**. 
@@ -53,7 +52,7 @@ SUN:  GEORGE (The Sun/Rain) - Sovereign Human Operator
 | **Sequoia** | Strategy & Governance | STIM Constitutional Arbitrator, enforces 200-year preservation axioms (Tier 0 veto) |
 | **Quercus** | Operations | COO and Dispatcher, Kanban state management, cron scheduling, and traffic control |
 | **Sylvan** | Execution | Deep research specialist, ecological modeling, and toolchain evaluation |
-| **Umbra / Kai**| Execution | Red Team refinement, tag linting, doc-414 auditing, and cryptographic attestation |
+| **Umbra / Kai**| Execution | Red Team refinement, tag linting, code quality auditing, and cryptographic attestation |
 | **Arbor** | Infrastructure | Knowledge topology, Mycelial Brain indexing, and doc numbering |
 | **Hermes** | Infrastructure | Local execution environment, container orchestration, and hardware monitoring |
 
@@ -219,12 +218,12 @@ python3 -m unittest discover -s 05_Tests/ -p "test_*.py" -v
 
 ---
 
-## 9. Style & Governance (Stop Slop & Doc-414)
+## 9. Code Quality & Governance
 
-Forest OS strictly complies with **Doc-414** and **STIM Layer 0 Governance**:
-* **Zero Em Dashes:** Never use em dashes (Unicode U+2014). Use colons, hyphens, or parentheses instead.
+Forest OS adheres to rigorous engineering standards and STIM Layer 0 Governance:
+* **Dense, Direct Prose:** Direct, capable, plain, and disciplined technical documentation. Zero marketing hyperbole, unnecessary fillers, or conversational tropes.
 * **Biological Claims Discipline:** Biological analogies are framed strictly as working hypotheses with explicit kill criteria, never established physical mechanisms.
-* **Dense, Direct Prose:** Zero marketing fluff, no passive voice, no filler adverbs.
+* **Substrate Purity:** Host preservation via containerized sidecars and user-space tooling. No uncontained system dependencies or global package pollution.
 * **Two-Tier Execution Policy:** Tier 1 operations are autonomous and idempotent; Tier 2 operations (git push, rm, container rebuilds, external network sends) require explicit human confirmation.
 
 ---
