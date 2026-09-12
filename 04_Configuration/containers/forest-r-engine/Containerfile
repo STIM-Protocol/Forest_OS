@@ -1,0 +1,38 @@
+# Forest OS: Tier 3 Scientific Container Sidecar (forest-r-engine)
+# Governance: Doc-414 Compliant (Zero em dashes, strict claims discipline)
+# Target Stack: lidR, TreeLS, rGEDI, BIOMASS, dplR, allodb, ForestTools, hemispheR, treeclim
+
+FROM rocker/geospatial:latest
+
+LABEL org.opencontainers.image.title="forest-r-engine" \
+      org.opencontainers.image.description="Forest OS R Spatial and Ecological Analysis Container" \
+      org.opencontainers.image.vendor="Forest OS Project" \
+      org.opencontainers.image.authors="George Steward <george.steward@myceliate.internal>"
+
+# Install additional C/C++ system libraries required by rGEDI and specialized R packages
+RUN apt-get update && apt-get install -y --no-install-recommends \
+    libhdf5-dev \
+    libgsl-dev \
+    libglpk-dev \
+    git \
+    curl \
+    && rm -rf /var/lib/apt/lists/*
+
+# Copy package installation and entrypoint scripts
+COPY install_packages.R /tmp/install_packages.R
+COPY entrypoint.sh /usr/local/bin/entrypoint.sh
+
+# Run package installation and clean up temporary files
+RUN Rscript /tmp/install_packages.R && rm -f /tmp/install_packages.R
+RUN chmod +x /usr/local/bin/entrypoint.sh
+
+# Configure persistent workspace directory with open permissions for host volume mounts
+RUN mkdir -p /workspace && chmod 777 /workspace
+
+WORKDIR /workspace
+
+# Expose port for optional RStudio Server web session
+EXPOSE 8787
+
+ENTRYPOINT ["/usr/local/bin/entrypoint.sh"]
+CMD []

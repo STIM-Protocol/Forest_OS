@@ -1,0 +1,13 @@
+{
+  "@context": "https://for.est/contexts/forest-centennial-os/v1",
+  "id": "01J19d46b8491",
+  "type": "document",
+  "title": "Operational Status",
+  "stim_axioms": "1,2,6",
+  "provenance": "Generated 2026-05-02",
+  "created": "2026-05-02T02:14:33",
+  "updated": "2026-05-02T02:14:33",
+  "relations": {
+    "path": "ARBORETUM/Active/Forest_OS/01_Docs/OPERATIONAL_STATUS.md"
+  }
+}

@@ -1,0 +1,11 @@
+[Desktop Entry]
+Type=Application
+Name=Forest RStudio Scientific Engine
+GenericName=RStudio LiDAR Environment
+Comment=Interactive RStudio Server with lidR, TreeLS, rGEDI, and BIOMASS
+Exec=forest-rstudio-launch
+Icon=forest-rstudio
+Terminal=false
+Categories=Development;IDE;
+Keywords=R;RStudio;LiDAR;lidR;TreeLS;Biomass;Pointcloud;GEDI;
+StartupNotify=true

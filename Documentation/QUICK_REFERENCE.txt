@@ -1,0 +1,70 @@
+================================================================================
+FOREST OS - QUICK REFERENCE CARD
+================================================================================
+Generated: 2026-05-04
+
+SERVICE COMMANDS
+────────────────
+  Start All:     systemctl --user start hermes-gateway.service
+  Stop All:      systemctl --user stop hermes-gateway.service
+  Restart:       systemctl --user restart hermes-gateway.service
+  Status:        systemctl --user status hermes-gateway.service
+  Logs:          journalctl --user -u hermes-gateway -f
+
+MODEL COMMANDS
+──────────────
+  List Models:   ollama list
+  Pull Model:    ollama pull gemma3n:latest
+  Run Model:     ollama run gemma3n:latest
+  Serve:         ollama serve &
+
+CRON JOBS
+─────────
+  List:          crontab -l
+  Edit:          crontab -e
+  Manual Run:    /path/to/script.sh
+
+RCLONE SYNC
+───────────
+  List Remotes:  rclone listremotes
+  Dry Run:       rclone sync --dry-run ~/Myceliate_Master/FOREST forest_drive:FOREST/
+  Sync:          rclone sync ~/Myceliate_Master/FOREST forest_drive:FOREST/ --progress
+
+FILE LOCATIONS
+──────────────
+  Config:        ~/.hermes/config.yaml
+  Env:           ~/.hermes/.env
+  Sessions:      ~/.hermes/sessions/
+  Snapshots:     ~/.hermes/state-snapshots/
+  Logs:          ~/.openclaw/logs/
+  Scripts:       ~/Myceliate_Master/UNDERSTORY/SYSTEM/Scripts/
+
+DOCUMENTATION
+─────────────
+  Comparative:   ~/Myceliate_Master/COMPARATIVE_ANALYSIS_KARPATHY_VS_FOREST.md
+  Implementation: ~/Myceliate_Master/FOREST_OS_IMPLEMENTATION.md
+
+KEY DIRECTORIES (Myceliate_Master/)
+────────────────────────────────────
+  FOREST/        Production systems      (1,742 files)
+  UNDERSTORY/    R&D & experiments       (186,540 files)
+  ARBORETUM/       Development             (1,904 files)
+  SEED_BANK/     Active projects         (90,115 files)
+  COMPOST/       Recycling               (3 files)
+  LEGACY_QUARANTINE/ Isolation          (421,916 files)
+
+TROUBLESHOOTING
+───────────────
+  Gateway Crash: systemctl --user restart hermes-gateway.service
+  Cron Issue:    systemctl --user restart cron.service
+  Memory Full:   rm ~/.hermes/sessions/*.json (keep recent)
+  Rclone Fail:   rclone config reconnect <remote>:
+  Ollama OOM:    Use smaller models (phi3:mini)
+
+EMERGENCY
+─────────
+  All Logs:      journalctl --user --no-pager | tail -1000
+  Disk Usage:    du -sh ~/Myceliate_Master/
+  Processes:     ps aux | grep -E "hermes|ollama|cron"
+
+================================================================================

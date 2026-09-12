@@ -1,0 +1,24 @@
+{
+  "@context": "https://for.est/contexts/forest-centennial-os/v1",
+  "id": "01J5b09da2cc",
+  "type": "implementation-document",
+  "title": "Forest OS Implementation Document",
+  "version": "2.0",
+  "stim_axioms": "1,2,3,6,7",
+  "provenance": "Migrated from Documentation/ 2026-05-04",
+  "created": "2026-05-04T15:00:00Z",
+  "updated": "2026-05-04T15:00:00Z",
+  "author": "george.steward",
+  "namespace": "forest-os.implementation",
+  "cycle": "2026-Q2",
+  "lineage": ["seed→arboretum→lab→forest"],
+  "integrity": "sha256:a1b2c3d4e5f6",
+  "relations": {
+    "parent": "forest-os",
+    "siblings": ["protocol-index", "world-model", "tag-taxonomy"],
+    "references": ["comprehensive-guide", "operational-status"]
+  },
+  "status": "operational",
+  "scope": "full-system-architecture",
+  "classification": "internal-documentation"
+}

@@ -1,0 +1,11 @@
+[Desktop Entry]
+Type=Application
+Name=pyDendron Tree-Ring Analysis
+GenericName=Dendrochronology Workbench
+Comment=Interactive Tree-Ring Dating, Measurement, and Cross-Dating
+Exec=pyDendron
+Icon=forest-pydendron
+Terminal=false
+Categories=Science;DataVisualization;
+Keywords=Dendrochronology;Tree;Rings;Wood;Dating;Increment;Core;
+StartupNotify=true

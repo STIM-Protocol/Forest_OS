@@ -1,0 +1,11 @@
+[Desktop Entry]
+Type=Application
+Name=Forest OS Workbench
+GenericName=Forestry Workbench
+Comment=Sovereign Forestry and Arboriculture Interactive Workbench
+Exec=forest-workbench
+Icon=forest-workbench
+Terminal=false
+Categories=Science;DataVisualization;X-Geospatial;
+Keywords=Forest;Forestry;Arboriculture;Canopy;Workbench;LiDAR;GIS;
+StartupNotify=true

@@ -1,0 +1,13 @@
+{
+  "@context": "https://for.est/contexts/forest-centennial-os/v1",
+  "id": "ROOT_MANIFEST",
+  "type": "project",
+  "name": "Root Manifest",
+  "tags": [
+    "bucket/001_projects"
+  ],
+  "relations": {
+    "path": "001_PROJECTS/Forest_OS/ROOT_MANIFEST.md"
+  },
+  "created": "2026-04-26T17:01:51.911874"
+}

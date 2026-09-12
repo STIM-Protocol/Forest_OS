@@ -1,0 +1,51 @@
+# Forest OS: Tier 3 Scientific Container Sidecar (forest-sim)
+# Governance: Doc-414 Compliant (Zero em dashes, strict claims discipline)
+# Target Stack: USDA Open-FVS (Growth and Yield Simulator) & Vibrant Planet microfvs
+
+FROM ghcr.io/vibrant-planet-open-science/usfs-fvs:latest
+
+LABEL org.opencontainers.image.title="forest-sim" \
+      org.opencontainers.image.description="Forest OS Growth, Yield, and Disturbance Simulation Container" \
+      org.opencontainers.image.vendor="Forest OS Project" \
+      org.opencontainers.image.authors="George Steward <george.steward@myceliate.internal>"
+
+ENV DEBIAN_FRONTEND=noninteractive
+ENV LANG=C.UTF-8
+ENV LC_ALL=C.UTF-8
+
+# Install Python runtime and utilities
+RUN apt-get update && apt-get install -y --no-install-recommends \
+    python3 \
+    python3-pip \
+    python3-venv \
+    git \
+    curl \
+    ca-certificates \
+    && rm -rf /var/lib/apt/lists/*
+
+# Set up isolated Python virtual environment for microfvs REST API and batch automation
+RUN python3 -m venv /opt/microfvs-env && \
+    /opt/microfvs-env/bin/pip install --no-cache-dir --upgrade pip setuptools wheel && \
+    /opt/microfvs-env/bin/pip install --no-cache-dir \
+        fastapi \
+        "uvicorn[standard]" \
+        pydantic \
+        pandas \
+        requests \
+        git+https://github.com/Vibrant-Planet-Open-Science/microfvs.git
+
+ENV PATH="/usr/local/bin:/opt/microfvs-env/bin:${PATH}"
+
+# Copy container entrypoint
+COPY entrypoint.sh /usr/local/bin/entrypoint.sh
+RUN chmod +x /usr/local/bin/entrypoint.sh
+
+# Configure workspace for volume mounts
+RUN mkdir -p /workspace && chmod 777 /workspace
+WORKDIR /workspace
+
+# Expose microfvs REST API port
+EXPOSE 8000
+
+ENTRYPOINT ["/usr/local/bin/entrypoint.sh"]
+CMD []

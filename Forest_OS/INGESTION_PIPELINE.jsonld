@@ -1,0 +1,13 @@
+{
+  "@context": "https://for.est/contexts/forest-centennial-os/v1",
+  "id": "INGESTION_PIPELI",
+  "type": "project",
+  "name": "Ingestion Pipeline",
+  "tags": [
+    "bucket/001_projects"
+  ],
+  "relations": {
+    "path": "001_PROJECTS/Forest_OS/INGESTION_PIPELINE.md"
+  },
+  "created": "2026-04-26T23:48:56.639714"
+}

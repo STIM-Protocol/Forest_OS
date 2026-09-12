@@ -1,0 +1,13 @@
+{
+  "@context": "https://for.est/contexts/forest-centennial-os/v1",
+  "id": "WORLD_MODEL",
+  "type": "project",
+  "name": "World Model",
+  "tags": [
+    "bucket/001_projects"
+  ],
+  "relations": {
+    "path": "001_PROJECTS/Forest_OS/WORLD_MODEL.md"
+  },
+  "created": "2026-04-26T23:48:56.642996"
+}

@@ -1,13 +1,48 @@
-# Forest OS .gitignore
-NURSERY/
-*.env
-*.secret
-__pycache__/
+# Forest OS: Public Repository .gitignore
+# Everything is ignored by default: we explicitly include only public core files
+
+# Ignore all:
+# This repo only contains the Forest OS core protocol + automation scripts
+# Personal coursework, private vault data, and large binaries are out-of-scope
+
+# Temporarily ignore everything
+/*
+# But include these top-level directories:
+!00_Core_Protocols/
+!01_Docs/
+!02_Agent_Definitions/
+!03_Automation_Scripts/
+!04_Configuration/
+!05_Tests/
+!Documentation/
+!README.md
+
+# Include inner Forest_OS workspace (active development)
+!Forest_OS/
+
+# Inside included dirs: include all files recursively
+!00_Core_Protocols/**
+!01_Docs/**
+!02_Agent_Definitions/**
+!03_Automation_Scripts/**
+!04_Configuration/**
+!05_Tests/**
+!Documentation/**
+!Forest_OS/**
+
+# Exclude private/volarile things inside included dirs
+# (compost, event logs, large binaries)
+Forest_OS/Events/**/*
+Forest_OS/Events/*.json
+!Forest_OS/Events/.gitkeep
+
+# No .gitignore itself
+!.gitignore
+
+# Python artifacts and caches
+**/__pycache__/**
 *.pyc
-.venv/
-venv/
-node_modules/
-.DS_Store
-*.log
-brain.yaml
-hermes.yaml
+*.pyo
+*.pyd
+.pytest_cache/
+

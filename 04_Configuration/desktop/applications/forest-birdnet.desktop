@@ -1,0 +1,11 @@
+[Desktop Entry]
+Type=Application
+Name=BirdNET Canopy Analyzer
+GenericName=Bioacoustics Analyzer
+Comment=Avian Bioacoustic Detection and Spectrogram Analysis
+Exec=birdnet-gui
+Icon=forest-birdnet
+Terminal=false
+Categories=Science;Biology;
+Keywords=Bioacoustics;BirdNET;Birds;Vocalization;Canopy;Acoustic;
+StartupNotify=true

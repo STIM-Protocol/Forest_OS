@@ -1,0 +1,19 @@
+<!DOCTYPE Menu PUBLIC "-//freedesktop//DTD Menu 1.0//EN"
+ "http://www.freedesktop.org/standards/menu-spec/1.0/menu.dtd">
+<Menu>
+  <Name>Applications</Name>
+  <Menu>
+    <Name>ForestOS</Name>
+    <Directory>forest-os.directory</Directory>
+    <Include>
+      <Category>X-Geospatial</Category>
+      <Filename>forest-workbench.desktop</Filename>
+      <Filename>forest-birdnet.desktop</Filename>
+      <Filename>forest-pydendron.desktop</Filename>
+      <Filename>forest-rstudio.desktop</Filename>
+      <Filename>forest-sim.desktop</Filename>
+      <Filename>forest-deepforest.desktop</Filename>
+      <Filename>forest-qgis.desktop</Filename>
+    </Include>
+  </Menu>
+</Menu>

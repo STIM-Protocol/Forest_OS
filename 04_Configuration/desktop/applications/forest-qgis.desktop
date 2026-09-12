@@ -1,0 +1,12 @@
+[Desktop Entry]
+Type=Application
+Name=QGIS Forestry Edition
+GenericName=Geographic Information System
+Comment=Geographic Information System for Forest Parcels and Aerial Imagery
+Exec=qgis %F
+Icon=qgis
+Terminal=false
+Categories=Science;Geography;X-Geospatial;
+Keywords=QGIS;GIS;Forest;Parcels;Canopy;Remote Sensing;Spatial;
+StartupNotify=true
+MimeType=application/x-qgis-project;image/tiff;application/geopackage+sqlite3;

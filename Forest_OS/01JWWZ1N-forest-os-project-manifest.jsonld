@@ -1,0 +1,13 @@
+{
+  "@context": "https://for.est/contexts/forest-centennial-os/v1",
+  "id": "01JWWZ1N-forest-",
+  "type": "project",
+  "name": "01Jwwz1N Forest Os Project Manifest",
+  "tags": [
+    "bucket/001_projects"
+  ],
+  "relations": {
+    "path": "001_PROJECTS/Forest_OS/01JWWZ1N-forest-os-project-manifest.md"
+  },
+  "created": "2026-04-26T18:20:35.244060"
+}

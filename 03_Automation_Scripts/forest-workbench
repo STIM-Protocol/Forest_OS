@@ -1,0 +1,73 @@
+#!/usr/bin/env python3
+"""
+Forest OS Workbench Local Web Server
+Serves the consolidated Forest OS Workbench HTML portal on port 5483 (LIVE).
+Doc-414 compliant (zero em dashes).
+"""
+
+import os
+import sys
+import argparse
+import http.server
+import socketserver
+import webbrowser
+from pathlib import Path
+
+DEFAULT_PORT = 5483
+WORKBENCH_HTML_DIR = Path(__file__).resolve().parent.parent / "04_Configuration" / "desktop"
+
+class WorkbenchHandler(http.server.SimpleHTTPRequestHandler):
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, directory=str(WORKBENCH_HTML_DIR), **kwargs)
+
+    def do_GET(self):
+        # Route root path or /workbench directly to forest_workbench.html
+        if self.path in ("/", "/index.html", "/workbench"):
+            self.path = "/forest_workbench.html"
+        return super().do_GET()
+
+    def log_message(self, format, *args):
+        # Clean logging format
+        sys.stderr.write(f"[Forest OS Workbench] {self.address_string()} - {format % args}\n")
+
+def run_server(port=DEFAULT_PORT, open_browser=True):
+    html_file = WORKBENCH_HTML_DIR / "forest_workbench.html"
+    if not html_file.exists():
+        print(f"Error: Workbench HTML file not found at {html_file}", file=sys.stderr)
+        sys.exit(1)
+
+    url = f"http://localhost:{port}"
+    print("=" * 64)
+    print(f"🌲 Forest OS Sovereign Forestry Workbench")
+    print(f"   Listening on: {url}")
+    print(f"   Serving from: {WORKBENCH_HTML_DIR}")
+    print("   Press Ctrl+C to terminate.")
+    print("=" * 64)
+
+    if open_browser:
+        try:
+            webbrowser.open(url)
+        except Exception as e:
+            print(f"Note: Could not open browser automatically: {e}", file=sys.stderr)
+
+    # Allow immediate port reuse
+    socketserver.TCPServer.allow_reuse_address = True
+    try:
+        with socketserver.TCPServer(("", port), WorkbenchHandler) as httpd:
+            httpd.serve_forever()
+    except KeyboardInterrupt:
+        print("\nShutting down Forest OS Workbench server.")
+    except OSError as e:
+        print(f"Error starting server on port {port}: {e}", file=sys.stderr)
+        sys.exit(1)
+
+def main():
+    parser = argparse.ArgumentParser(description="Forest OS Workbench Web Server")
+    parser.add_argument("--port", "-p", type=int, default=DEFAULT_PORT, help="Port to bind (default: 5483)")
+    parser.add_argument("--no-browser", action="store_true", help="Do not automatically launch browser")
+    args = parser.parse_args()
+
+    run_server(port=args.port, open_browser=not args.no_browser)
+
+if __name__ == "__main__":
+    main()

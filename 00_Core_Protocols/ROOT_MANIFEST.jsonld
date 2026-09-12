@@ -1,0 +1,13 @@
+{
+  "@context": "https://for.est/contexts/forest-centennial-os/v1",
+  "id": "01J7573697b01",
+  "type": "document",
+  "title": "Root Manifest",
+  "stim_axioms": "1,2,3,6,7",
+  "provenance": "Generated 2026-05-02",
+  "created": "2026-05-02T02:14:33",
+  "updated": "2026-05-02T02:14:33",
+  "relations": {
+    "path": "GREENHOUSE/Active/Forest_OS/00_Core_Protocols/ROOT_MANIFEST.md"
+  }
+}

@@ -1,0 +1,25 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 128 128" width="128" height="128">
+  <defs>
+    <linearGradient id="pydBg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#1e2326"/>
+      <stop offset="100%" stop-color="#2d353b"/>
+    </linearGradient>
+  </defs>
+  <rect width="128" height="128" rx="28" fill="url(#pydBg)" stroke="#dbbc7f" stroke-width="2" stroke-opacity="0.5"/>
+  <!-- Tree cross-section rings -->
+  <circle cx="64" cy="64" r="46" fill="none" stroke="#dbbc7f" stroke-width="3" opacity="0.3"/>
+  <circle cx="64" cy="64" r="37" fill="none" stroke="#dbbc7f" stroke-width="2.5" opacity="0.5"/>
+  <circle cx="64" cy="64" r="28" fill="none" stroke="#a7c080" stroke-width="2.5" opacity="0.7"/>
+  <circle cx="64" cy="64" r="19" fill="none" stroke="#7fbbb3" stroke-width="2" opacity="0.8"/>
+  <circle cx="64" cy="64" r="10" fill="none" stroke="#dbbc7f" stroke-width="2" opacity="0.9"/>
+  <circle cx="64" cy="64" r="4" fill="#dbbc7f"/>
+  <!-- Increment borer / measurement radial line -->
+  <line x1="64" y1="64" x2="110" y2="38" stroke="#e67e80" stroke-width="2.5" stroke-linecap="round"/>
+  <circle cx="110" cy="38" r="4" fill="#e67e80"/>
+  <!-- Caliper tick marks along radius -->
+  <line x1="77" y1="56" x2="74" y2="51" stroke="#e67e80" stroke-width="1.5"/>
+  <line x1="88" y1="50" x2="85" y2="45" stroke="#e67e80" stroke-width="1.5"/>
+  <line x1="99" y1="44" x2="96" y2="39" stroke="#e67e80" stroke-width="1.5"/>
+  <!-- Growth index pulse indicator -->
+  <path d="M22,106 L36,106 L44,94 L52,112 L60,98 L68,106 L82,106" fill="none" stroke="#a7c080" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+</svg>

@@ -1,0 +1,13 @@
+{
+  "@context": "https://for.est/contexts/forest-centennial-os/v1",
+  "id": "HEARTWOOD_CAMBIU",
+  "type": "project",
+  "name": "Heartwood Cambium Pattern",
+  "tags": [
+    "bucket/001_projects"
+  ],
+  "relations": {
+    "path": "001_PROJECTS/Forest_OS/HEARTWOOD_CAMBIUM_PATTERN.md"
+  },
+  "created": "2026-04-26T23:48:56.639022"
+}

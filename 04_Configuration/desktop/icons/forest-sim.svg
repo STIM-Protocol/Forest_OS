@@ -1,0 +1,30 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 128 128" width="128" height="128">
+  <defs>
+    <linearGradient id="simBg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#1e2326"/>
+      <stop offset="100%" stop-color="#2d353b"/>
+    </linearGradient>
+  </defs>
+  <rect width="128" height="128" rx="28" fill="url(#simBg)" stroke="#e67e80" stroke-width="2" stroke-opacity="0.5"/>
+  <!-- Ground baseline -->
+  <line x1="16" y1="104" x2="112" y2="104" stroke="#a7c080" stroke-width="2" stroke-opacity="0.7"/>
+  <!-- Tree 1: Juvenile Stand (t = 0) -->
+  <polygon points="34,70 42,86 26,86" fill="#83c092" opacity="0.8"/>
+  <rect x="32" y="86" width="4" height="18" fill="#dbbc7f"/>
+  <!-- Tree 2: Intermediate Canopy (t = 20) -->
+  <polygon points="64,42 76,64 52,64" fill="#a7c080"/>
+  <polygon points="64,56 80,82 48,82" fill="#83c092"/>
+  <rect x="62" y="82" width="4" height="22" fill="#dbbc7f"/>
+  <!-- Tree 3: Mature Canopy (t = 40) -->
+  <polygon points="94,22 108,46 80,46" fill="#a7c080"/>
+  <polygon points="94,38 112,66 76,66" fill="#83c092"/>
+  <polygon points="94,56 114,84 74,84" fill="#7fbbb3"/>
+  <rect x="91" y="84" width="6" height="20" fill="#dbbc7f"/>
+  <!-- Stand growth projection vector curve -->
+  <path d="M26,82 Q60,50 106,20" fill="none" stroke="#e69875" stroke-width="2.5" stroke-dasharray="4,3"/>
+  <polygon points="106,16 112,24 102,24" fill="#e69875"/>
+  <!-- Silvicultural harvest / thinning mark (juvenile cut target) -->
+  <circle cx="34" cy="95" r="5" fill="none" stroke="#e67e80" stroke-width="1.5"/>
+  <line x1="31" y1="92" x2="37" y2="98" stroke="#e67e80" stroke-width="1.5"/>
+  <line x1="37" y1="92" x2="31" y2="98" stroke="#e67e80" stroke-width="1.5"/>
+</svg>

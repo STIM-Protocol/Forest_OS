@@ -1,0 +1,13 @@
+{
+  "@context": "https://for.est/contexts/forest-centennial-os/v1",
+  "id": "01Je0a91cf074",
+  "type": "document",
+  "title": "Agent Charters",
+  "stim_axioms": "1,2,6",
+  "provenance": "Generated 2026-05-02",
+  "created": "2026-05-02T02:14:33",
+  "updated": "2026-05-02T02:14:33",
+  "relations": {
+    "path": "GREENHOUSE/Active/Forest_OS/02_Agent_Definitions/AGENT_CHARTERS.md"
+  }
+}

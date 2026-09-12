@@ -1,0 +1,11 @@
+[Desktop Entry]
+Type=Application
+Name=DeepForest Canopy Detection
+GenericName=Tree Crown Detection AI
+Comment=Individual Tree Crown Detection from Drone and Aerial Imagery
+Exec=forest-deepforest-launch
+Icon=forest-deepforest
+Terminal=true
+Categories=Science;DataVisualization;X-Geospatial;
+Keywords=DeepForest;Tree;Canopy;Crown;Drone;Orthomosaic;PyTorch;AI;
+StartupNotify=true

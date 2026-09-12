@@ -1,0 +1,11 @@
+[Desktop Entry]
+Type=Application
+Name=Forest-Sim Open-FVS Simulator
+GenericName=Growth and Yield Simulator
+Comment=USDA Forest Vegetation Simulator Suite and microfvs REST Daemon
+Exec=forest-sim-launch
+Icon=forest-sim
+Terminal=true
+Categories=Science;DataVisualization;
+Keywords=FVS;Forest;Simulation;Growth;Yield;Silviculture;Harvest;microfvs;
+StartupNotify=true

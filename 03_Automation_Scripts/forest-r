@@ -1,0 +1,116 @@
+#!/bin/bash
+# Forest OS: forest-r Host CLI Integration Wrapper
+# Governance: Doc-414 Compliant (Zero em dashes, strict claims discipline)
+
+set -e
+
+IMAGE_NAME="${FOREST_R_IMAGE:-forest-r-engine}"
+
+# Detect container runtime (Podman or Docker)
+detect_runtime() {
+    if command -v podman >/dev/null 2>&1; then
+        echo "podman"
+    elif command -v docker >/dev/null 2>&1; then
+        echo "docker"
+    else
+        echo ""
+    fi
+}
+
+RUNTIME=$(detect_runtime)
+if [ -z "${RUNTIME}" ]; then
+    echo "Error: Neither podman nor docker found in PATH." >&2
+    echo "Please install a container runtime to execute Tier 3 scientific sidecars." >&2
+    exit 1
+fi
+
+print_help() {
+    cat <<EOF
+Forest OS Scientific R Engine CLI (forest-r)
+Target Container: ${IMAGE_NAME}
+
+Usage:
+  forest-r <script.R> [args...]       Execute an R script in the container
+  forest-r -e 'expression'            Evaluate an inline R expression
+  forest-r                            Launch an interactive R terminal session
+  forest-r --web                      Launch RStudio Server on http://localhost:8787
+  forest-r bash                       Open an interactive container shell
+  forest-r -h, --help                 Display this help reference
+
+Host Integration:
+  - Current directory (\$PWD) is mounted to /workspace
+  - Output files are written with host user UID:GID ($(id -u):$(id -g))
+EOF
+}
+
+# Check for help flag
+if [ "$1" = "-h" ] || [ "$1" = "--help" ]; then
+    print_help
+    exit 0
+fi
+
+# Verify that the container image exists
+check_image() {
+    if ! "${RUNTIME}" image inspect "${IMAGE_NAME}" >/dev/null 2>&1; then
+        echo "Error: Container image '${IMAGE_NAME}' is not built." >&2
+        echo "To build the image, run:" >&2
+        echo "  bash 03_Automation_Scripts/build_containers.sh r-engine" >&2
+        exit 1
+    fi
+}
+
+check_image
+
+# Web mode: RStudio Server
+if [ "$1" = "--web" ] || [ "$1" = "serve" ] || [ "$1" = "rstudio" ]; then
+    PORT="${RSTUDIO_PORT:-8787}"
+    PASSWORD="${RSTUDIO_PASSWORD:-forest}"
+    echo "Starting Forest OS RStudio Server..."
+    echo "Access URL: http://localhost:${PORT}"
+    echo "Username:   rstudio"
+    echo "Password:   ${PASSWORD}"
+    echo "Press Ctrl+C to terminate session."
+    exec "${RUNTIME}" run --rm -it \
+        -p "${PORT}:8787" \
+        -e PASSWORD="${PASSWORD}" \
+        -e USERID="$(id -u)" \
+        -e GROUPID="$(id -g)" \
+        -v "$PWD:/home/rstudio/workspace" \
+        -w /home/rstudio/workspace \
+        "${IMAGE_NAME}" rstudio
+fi
+
+# Single expression evaluation
+if [ "$1" = "-e" ] || [ "$1" = "--eval" ]; then
+    shift
+    exec "${RUNTIME}" run --rm \
+        -u "$(id -u):$(id -g)" \
+        -v "$PWD:/workspace" \
+        -w /workspace \
+        "${IMAGE_NAME}" -e "$@"
+fi
+
+# No arguments: launch interactive R session
+if [ $# -eq 0 ]; then
+    exec "${RUNTIME}" run --rm -it \
+        -u "$(id -u):$(id -g)" \
+        -v "$PWD:/workspace" \
+        -w /workspace \
+        "${IMAGE_NAME}" R --no-save --quiet
+fi
+
+# R script execution
+if [[ "$1" == *.R ]] || [[ "$1" == *.r ]]; then
+    exec "${RUNTIME}" run --rm -it \
+        -u "$(id -u):$(id -g)" \
+        -v "$PWD:/workspace" \
+        -w /workspace \
+        "${IMAGE_NAME}" Rscript "$@"
+fi
+
+# Fall through for custom commands
+exec "${RUNTIME}" run --rm -it \
+    -u "$(id -u):$(id -g)" \
+    -v "$PWD:/workspace" \
+    -w /workspace \
+    "${IMAGE_NAME}" "$@"

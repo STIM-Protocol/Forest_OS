@@ -1,0 +1,29 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 128 128" width="128" height="128">
+  <defs>
+    <linearGradient id="birdBg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#1e2326"/>
+      <stop offset="100%" stop-color="#2d353b"/>
+    </linearGradient>
+    <linearGradient id="waveGrad" x1="0%" y1="100%" x2="0%" y2="0%">
+      <stop offset="0%" stop-color="#7fbbb3"/>
+      <stop offset="100%" stop-color="#a7c080"/>
+    </linearGradient>
+  </defs>
+  <rect width="128" height="128" rx="28" fill="url(#birdBg)" stroke="#83c092" stroke-width="2" stroke-opacity="0.35"/>
+  <!-- Audio frequency spectrum bars -->
+  <rect x="22" y="76" width="6" height="24" rx="3" fill="#7fbbb3" opacity="0.6"/>
+  <rect x="32" y="62" width="6" height="38" rx="3" fill="#7fbbb3" opacity="0.8"/>
+  <rect x="42" y="52" width="6" height="48" rx="3" fill="url(#waveGrad)"/>
+  <rect x="52" y="68" width="6" height="32" rx="3" fill="#83c092"/>
+  <rect x="62" y="44" width="6" height="56" rx="3" fill="url(#waveGrad)"/>
+  <rect x="72" y="58" width="6" height="42" rx="3" fill="#83c092"/>
+  <rect x="82" y="48" width="6" height="52" rx="3" fill="url(#waveGrad)"/>
+  <rect x="92" y="64" width="6" height="36" rx="3" fill="#7fbbb3" opacity="0.8"/>
+  <rect x="102" y="78" width="6" height="22" rx="3" fill="#7fbbb3" opacity="0.6"/>
+  <!-- Songbird silhouette on branch -->
+  <path d="M40,42 Q48,26 66,24 Q76,23 84,28 Q92,33 96,31 Q90,38 90,44 Q90,52 82,56 Q72,60 62,56 Q52,52 44,48 Z" fill="#dbbc7f"/>
+  <circle cx="80" cy="30" r="2" fill="#1e2326"/>
+  <!-- Soundwave rings radiating from beak -->
+  <path d="M98,26 Q104,29 104,35" fill="none" stroke="#e69875" stroke-width="2" stroke-linecap="round"/>
+  <path d="M102,22 Q110,26 110,36" fill="none" stroke="#e69875" stroke-width="2" stroke-linecap="round" opacity="0.7"/>
+</svg>

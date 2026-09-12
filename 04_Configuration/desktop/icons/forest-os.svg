@@ -1,0 +1,31 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 128 128" width="128" height="128">
+  <defs>
+    <linearGradient id="bgGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#1e2326"/>
+      <stop offset="100%" stop-color="#272e33"/>
+    </linearGradient>
+    <linearGradient id="treeGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#a7c080"/>
+      <stop offset="100%" stop-color="#83c092"/>
+    </linearGradient>
+    <linearGradient id="myceliumGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#dbbc7f"/>
+      <stop offset="100%" stop-color="#7fbbb3"/>
+    </linearGradient>
+  </defs>
+  <rect width="128" height="128" rx="28" fill="url(#bgGrad)" stroke="#a7c080" stroke-width="2" stroke-opacity="0.3"/>
+  <!-- Canopy layers -->
+  <polygon points="64,18 88,48 40,48" fill="url(#treeGrad)"/>
+  <polygon points="64,36 94,68 34,68" fill="url(#treeGrad)" opacity="0.9"/>
+  <polygon points="64,54 100,88 28,88" fill="url(#treeGrad)" opacity="0.8"/>
+  <!-- Trunk -->
+  <rect x="59" y="88" width="10" height="16" rx="2" fill="#dbbc7f"/>
+  <!-- Mycelial network roots -->
+  <path d="M64,104 Q50,112 36,118 M64,104 Q78,112 92,118 M64,104 Q64,115 64,122 M50,112 Q42,122 30,124 M78,112 Q86,122 98,124" fill="none" stroke="url(#myceliumGrad)" stroke-width="2.5" stroke-linecap="round"/>
+  <!-- Mycelium nodes -->
+  <circle cx="36" cy="118" r="3" fill="#7fbbb3"/>
+  <circle cx="92" cy="118" r="3" fill="#7fbbb3"/>
+  <circle cx="64" cy="122" r="3" fill="#a7c080"/>
+  <circle cx="30" cy="124" r="2.5" fill="#dbbc7f"/>
+  <circle cx="98" cy="124" r="2.5" fill="#dbbc7f"/>
+</svg>
