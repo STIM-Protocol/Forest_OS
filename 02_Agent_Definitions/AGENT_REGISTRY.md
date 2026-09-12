@@ -8,11 +8,11 @@
 ## Agent Philosophy
 
 Every Forest OS agent is:
-- **Goal-directed** — has a clear objective and success criteria
-- **Self-documenting** — logs actions to appropriate Forest locations
-- **Failure-resilient** — retries with backoff, alerts on persistent errors
-- **Observable** — emits structured logs and metrics
-- **Protocol-compliant** — respects Heartwood/Cambium standards
+- **Goal-directed:** has a clear objective and success criteria
+- **Self-documenting:** logs actions to appropriate Forest locations
+- **Failure-resilient:** retries with backoff, alerts on persistent errors
+- **Observable:** emits structured logs and metrics
+- **Protocol-compliant:** respects Heartwood/Cambium standards
 
 ---
 

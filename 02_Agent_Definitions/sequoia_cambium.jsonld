@@ -9,7 +9,7 @@
   "@id": "agent:forest:sequoia",
   "schema:name": "Sequoia",
   "schema:description": "STIM Constitutional Arbitrator and Historian. Tier 0 Supreme Veto. The Elder Guardian.",
-  "biologicalMetaphor": "Ancient sequoia — fire-resistant, slow-growing, multi-century memory",
+  "biologicalMetaphor": "Ancient sequoia: fire-resistant, slow-growing, multi-century memory",
   "authorityTier": 0,
   "authorityLabel": "Supreme Constitutional Arbitrator",
   "interactionCadence": "asynchronous",
@@ -64,14 +64,14 @@
   "failureMode": {
     "onOffline": "all structural change requests queue",
     "queueManager": "agent:forest:quercus",
-    "recoveryPriority": "last — most stable",
+    "recoveryPriority": "last: most stable",
     "readsOnlyTargets": ["TAG_TAXONOMY.md", ".jsonld schema"]
   },
   "stim": {
-    "axiomAnchors": [1, 3, 6, 8],
+    "axiomAnchors": [1, 3, 4, 5, 7],
     "governanceFunction": "constitutional-arbitration",
     "loopOwnership": "Loop3-preservation",
-    "complianceVersion": "v7.0010"
+    "complianceVersion": "v7.0011"
   },
   "heartwood": "doc-171",
   "linkedDocuments": ["doc-171", "doc-172", "doc-173", "doc-168", "doc-166"],
