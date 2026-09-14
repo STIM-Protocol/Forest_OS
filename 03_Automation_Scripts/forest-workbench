@@ -1,4 +1,7 @@
 #!/usr/bin/env python3
+# NOTE (FOREST-OS-REPO-ALIGNMENT-001): this server binds to all interfaces (empty host
+# string), not loopback-only. Verify actual listeners (ss -tlnp) on networked machines.
+# Binding explicitly to 127.0.0.1 is a separate runtime-hardening change (follow-up R1).
 """
 Forest OS Workbench Local Web Server
 Serves the consolidated Forest OS Workbench HTML portal on port 5483 (LIVE).

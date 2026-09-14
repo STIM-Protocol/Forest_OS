@@ -4,6 +4,8 @@
 **Status:** Live System Snapshot
 **Maintainer:** Bodhi (Arboracle) + George Steward
 
+> **HISTORICAL DOCUMENT (2026-04 era).** This page describes the earlier Greenhouse-era vault vocabulary and paths. The current lifecycle is Seed → Arboretum → Understory → Forest with support zones (00_CANOPY, LIBRARY, COMPOST). Path examples here are quarantined from recommended usage — see [01_Docs/FILESYSTEM_MODEL.md](../01_Docs/FILESYSTEM_MODEL.md) and [01_Docs/DOCUMENT_AUTHORITY.md](../01_Docs/DOCUMENT_AUTHORITY.md). Retained for provenance; do not follow its path instructions on a current machine.
+
 ---
 
 ## 1. Executive Overview
@@ -122,8 +124,8 @@ This isolates failures and enables parallel workstreams.
 
 | Project | Status | Location | Next Action |
 |---------|--------|----------|-------------|
-| **Ryder Education Dossier** | Complete (01JWWZ1M) | Forest/003_PEOPLE/Ryder/ | Share with Collin |
-| **Chelsea Medical Consolidation** | Complete | Forest/003_PEOPLE/Chelsea/ | Ongoing sync |
+| *(personal project, redacted)* | Complete (01JWWZ1M) | Forest/003_PEOPLE/…/ | — |
+| *(personal project, redacted)* | Complete | Forest/003_PEOPLE/…/ | Ongoing sync |
 | **Forest OS Protocol Authored** | In Progress | Forest/000_DASHBOARD/ | Finalize World Model, Tag Taxonomy |
 | **Mycelial Brain MCP** | Running (rev. 00046-fbb) | Cloud Run | Monitor, ingest new docs |
 
@@ -142,7 +144,7 @@ This isolates failures and enables parallel workstreams.
 
 ## 8. Evolutionary Notes
 
-**2026-04-24:** Major re-organization to person-centric Forest structure (Chelsea Medical, Ryder Education). Established COMPOST two-way mirror with Google Drive.
+**2026-04-24:** Major re-organization to person-centric Forest structure (personal project names redacted). Established COMPOST two-way mirror with Google Drive.
 
 **2026-04-25:** Mycelial Brain connection restored after Cloud Run deployment fix; ROOT_MANIFEST and BODHI STIM ingested.
 

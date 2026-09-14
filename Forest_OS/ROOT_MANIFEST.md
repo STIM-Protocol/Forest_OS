@@ -1,3 +1,5 @@
+<!-- HISTORICAL COPY: see 01_Docs/DOCUMENT_AUTHORITY.md for the authoritative source. -->
+
 # ROOT_MANIFEST: Forest OS Centennial Architecture
 
 **Version:** 1.0.0

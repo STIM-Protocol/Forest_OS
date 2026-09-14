@@ -1,3 +1,5 @@
+<!-- HISTORICAL COPY: canonical version lives in 01_Docs/. See 01_Docs/DOCUMENT_AUTHORITY.md. -->
+
 ================================================================================
 FOREST OS IMPLEMENTATION DOCUMENT
 ================================================================================

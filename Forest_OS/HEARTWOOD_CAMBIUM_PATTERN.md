@@ -1,3 +1,5 @@
+<!-- HISTORICAL COPY: see 01_Docs/DOCUMENT_AUTHORITY.md for the authoritative source. -->
+
 # Heartwood / Cambium: File Pattern Specification
 
 **Version:** 1.0.0
@@ -10,8 +12,8 @@
 Each *authoritative* knowledge entity in Forest OS exists as a **pair**:
 
 ```
-01JWWZ1M-ryder-college-dossier.md      ← Heartwood (human-readable content)
-01JWWZ1M-ryder-college-dossier.jsonld  ← Cambium (machine-readable metadata)
+01JWWZ1M-example-person-dossier.md      ← Heartwood (human-readable content)
+01JWWZ1M-example-person-dossier.jsonld  ← Cambium (machine-readable metadata)
 ```
 
 - **Heartwood** is the substance. It is the prose, tables, diagrams, and narrative.
@@ -42,10 +44,10 @@ The Cambium enables indexing, discovery, and automated operations without pollut
 **Example frontmatter:**
 ```markdown
 ---
-Author: Ryder
+Author: Example Person
 Date: 2026-04-26
 Subject: College Decision Analysis
-Tags: person/ryder subject/education research
+Tags: person/example subject/education research
 ---
 
 # The College Imperative: My Strategic Analysis
@@ -79,7 +81,7 @@ Tags: person/ryder subject/education research
   "relations": {
     "parent": "doc-115",
     "child_of": "01JWWZ1K",
-    "mentions": ["person/collin", "organization/osu"],
+    "mentions": ["person/example-2", "organization/osu"],
     "see_also": ["01JWWZ1N"]
   }
 }
@@ -91,8 +93,8 @@ Tags: person/ryder subject/education research
   "@context": "https://for.est/contexts/forest-centennial-os/v1",
   "id": "01JWWZ1M",
   "type": "dossier",
-  "name": "Ryder College Decision Master Dossier",
-  "tags": ["person/ryder", "subject/education", "research"],
+  "name": "Example Person Decision Master Dossier",
+  "tags": ["person/example", "subject/education", "research"],
   "relations": {"parent": "doc-115"},
   "created": "2026-04-26T13:00:00-05:00"
 }
@@ -106,7 +108,7 @@ When adding a new primary node:
 
 1. [ ] Choose correct Forest bucket (001–006)
 2. [ ] Generate UUIDv7: `uuidgen -r` or equivalent (11 chars: 01JWWZ1M)
-3. [ ] Create descriptive slug: `-ryder-college-dossier.md`
+3. [ ] Create descriptive slug: `-example-person-dossier.md`
 4. [ ] Write Heartwood (`.md`) first: focus on content
 5. [ ] Draft Cambium (`.jsonld`) second: extract ID, type, tags from content
 6. [ ] Validate tags against `TAG_TAXONOMY.md`
