@@ -1,241 +1,202 @@
-# Forest OS: Sovereign Forestry & Arboriculture Workbench
-### Autonomous Knowledge Organism &bull; STIM Protocol Reference Implementation v1
+# Forest OS: Forestry & Arboriculture Workbench on Linux
 
 [![STIM-AI](https://img.shields.io/badge/STIM--AI-v7.0011-1a4a2e?style=flat&labelColor=0d2818)](https://github.com/STIM-Protocol/stim-core)
 [![Reference Implementation](https://img.shields.io/badge/Reference-Implementation_v1-brightgreen?style=flat)](https://github.com/STIM-Protocol/Forest_OS)
-[![Port 5483 LIVE](https://img.shields.io/badge/Workbench-Port_5483_(LIVE)-7fbbb3?style=flat)](http://localhost:5483)
-[![License: MIT](https://img.shields.io/badge/License-MIT-green.svg)](https://github.com/STIM-Protocol/Forest_OS/blob/main/LICENSE)
-[![Tests: 20 Passing](https://img.shields.io/badge/Tests-20_Passed-83c092?style=flat)](#automated-test-verification)
+[![Workbench Port 5483](https://img.shields.io/badge/Workbench-Port_5483-7fbbb3?style=flat)](04_Configuration/desktop/forest_workbench.html)
+[![License: MIT](https://img.shields.io/badge/License-MIT-green.svg)](LICENSE)
+[![Tests](https://img.shields.io/badge/Tests-20_function_source_inventory_(not_a_fresh_run)-83c092?style=flat)](#automated-test-inventory)
 
-Forest OS is the sovereign computational operating system for ecological land stewards, foresters, consulting arborists, and canopy researchers. It functions simultaneously as an **autonomous, biomimetic AI knowledge organism** and as a **heavy scientific field-to-lab workstation**. 
+Forest OS is a Linux-based operating environment for ecological land stewards, foresters, consulting arborists, and canopy researchers. It combines three things:
 
-Forest OS is formally declared the **STIM Protocol Reference Implementation v1**, demonstrating how Layer 0 governance constraints (Thermodynamic entropy tracking, substrate grounding, and strict host isolation) manage heterogeneous, multi-modal ecological computing pipelines without system degradation.
+1. **A knowledge and file model** — the Heartwood/Cambium document pattern and a lifecycle-based vault layout (below).
+2. **Agent workflows** — multi-agent coordination for research, ingestion, and maintenance.
+3. **A forestry scientific workbench** — host user-space CLI tools, native desktop GIS, and containerized R/Fortran sidecars.
 
----
+Forest OS is the **STIM Protocol Reference Implementation v1**. STIM-AI stands for **Stasis Through Inferred Memory** (canonical technical expansion, [seven-axiom specification v7.0011](https://github.com/STIM-Protocol/white-paper)). "Sovereign, Transparent, Immutable, Minimal" and "Standardized Truth & Immutable Memory" are engineering mnemonics used in some historical documents; they are not the protocol definition.
 
-## 1. Executive Summary & Case Study Thesis
-
-Traditional ecological computing suffers from severe environment fragility: unmaintained Fortran growth models, archived CRAN packages, conflicting GDAL/GEOS C-bindings, and massive Python dependency collisions.
-
-Forest OS solves this through a **Three-Tier Zero-Bloat Architecture** governed by the STIM Protocol (Sovereign, Transparent, Immutable, Minimal):
-
-1. **Sovereign:** Absolute host protection. No root pollution, no global `pip install`. User-space execution via `uv tool` and container sidecars.
-2. **Transparent:** Standardized POSIX CLI wrappers, FreeDesktop XDG desktop entries, custom SVG icons, and a consolidated web workbench on port 5483.
-3. **Immutable:** Biomimetic lifecycle: Spores (raw ingest) &rarr; Cambium (active state) &rarr; Heartwood (immutable published models) &rarr; Compost (pruned ephemera) &rarr; Greenhouse (experimental algorithms).
-4. **Minimal:** Elimination of runtime duplication. Host-native C++ where performance matters, compiled OCI sidecars for complex R and Fortran suites.
+> **Scope statement.** This repository is *source*. Your personalized working copy (the "operating vault") lives elsewhere on your machine and is created by you, not by cloning. Forest OS is not a tested, installable distribution image; packaging an installable image is a future ambition, not a present deliverable. Claims here are documentation-level unless a dated verification receipt says otherwise.
 
 ---
 
-## 2. The Cognitive Biosphere (Core Agents)
+## 1. Two trees: repository source vs. operating vault
 
-Forest OS operates under hierarchical multi-agent coordination grounded in biological metaphors:
+Do not confuse these. The Git repository you are looking at is the **source** for scripts, protocols, and the workbench. The **operating vault** is your personal knowledge root where documents live and the lifecycle actually happens.
+
+### Repository source (this repo)
 
 ```
-SUN:  GEORGE (The Sun/Rain) - Sovereign Human Operator
- |
- |-- BODHI (Meaning) - Strategy & Governance
- |-- SEQUOIA (Time) - The Roots (STIM Constitutional Arbitrator, Tier 0 Veto)
- |
- |-- QUERCUS (Efficiency) - Operations Director (The Trunk: Dispatch, Cron, Locks)
- |
- |-- SYLVAN (Growth) - Execution Layer (Polyploidy & Forest Research)
- |-- UMBRA / KAI (Refinement) - The Canopy (Red Team Quality, Cryptographic Attestation)
- |
- |-- ARBOR (Topology) - Infrastructure (Knowledge Graphs, Doc Indexing)
- |-- HERMES (Platform) - Soil & Mycelium (Local Execution Substrate)
+Forest_OS/                       # this repository
+├── 00_Core_Protocols/           # STIM specifications, world model, ingestion, sync
+├── 01_Docs/                     # implementation notes, handoff packs, reports
+│   ├── FILESYSTEM_MODEL.md      # canonical filesystem guide (start here)
+│   ├── FORESTRY_WORKBENCH.md    # tool catalog source, packaging, evidence model
+│   ├── VERIFICATION_AND_COMPATIBILITY.md  # what is tested, where, and what is not
+│   └── DOCUMENT_AUTHORITY.md    # which document governs which topic
+├── 02_Agent_Definitions/        # agent charters and registry
+├── 03_Automation_Scripts/       # CLI wrappers, container builders, installers
+├── 04_Configuration/            # container recipes, desktop launchers, workbench HTML
+├── 05_Tests/                    # component test suites (see Section 8)
+├── Documentation/               # historical copies (see 01_Docs/DOCUMENT_AUTHORITY.md)
+├── Forest_OS/                   # historical protocol copies (see 01_Docs/DOCUMENT_AUTHORITY.md)
+├── doc-200.md, doc-202.md, doc-210.md   # governance / cadence documents
+├── CONTRIBUTING.md
+└── LICENSE                      # MIT (repository code; bundled third-party tools keep their own licenses)
 ```
 
-| Agent | Role | Description |
-|---|---|---|
-| **George** | Sovereign Layer | Human operator, provides biological intent, ground-truth field data, and creative sovereignty |
-| **Bodhi** | Strategy & Governance | Philosophical superagent, translates human imperatives to system intelligence |
-| **Sequoia** | Strategy & Governance | STIM Constitutional Arbitrator, enforces 200-year preservation axioms (Tier 0 veto) |
-| **Quercus** | Operations | COO and Dispatcher, Kanban state management, cron scheduling, and traffic control |
-| **Sylvan** | Execution | Deep research specialist, ecological modeling, and toolchain evaluation |
-| **Umbra / Kai**| Execution | Red Team refinement, tag linting, code quality auditing, and cryptographic attestation |
-| **Arbor** | Infrastructure | Knowledge topology, Mycelial Brain indexing, and doc numbering |
-| **Hermes** | Infrastructure | Local execution environment, container orchestration, and hardware monitoring |
+### Operating vault (your machine, example layout)
+
+Documented in full in [01_Docs/FILESYSTEM_MODEL.md](01_Docs/FILESYSTEM_MODEL.md). Lifecycle stages:
+
+```
+Seed  →  Arboretum  →  Understory  →  Forest
+```
+
+On an operating machine these appear as directories such as:
+
+```
+~/Myceliate_Master/              # example operating-vault root (personalized, not part of this repo)
+├── SEED_BANK/                   # Seed: intake, capture, downloads
+├── ARBORETUM/                   # Arboretum: developing/active projects
+├── UNDERSTORY/                  # Understory: supporting system & research functions
+├── FOREST/                      # Forest: mature knowledge in numbered topic buckets
+├── 00_CANOPY/                   # support zone: consolidated views (a projection, not a second database)
+├── LIBRARY/                     # support zone: reference/archive material
+└── COMPOST/                     # support zone: retired/superseded material
+```
+
+**Heartwood/Cambium pairing** is independent of the directory lifecycle: every knowledge item is a pair of a Heartwood content file (`.md`) and a Cambium metadata sidecar (`.jsonld`) sharing one stable ID. Lifecycle directories say *where an item is in its journey*; Heartwood/Cambium say *how it is represented*.
+
+### Historical naming
+
+Older documents in this repository (2026-04 era) used a **Greenhouse / Garden / Nursery / Laboratory** vocabulary. Those names are historical. The current lifecycle vocabulary is Seed → Arboretum → Understory → Forest, and support zones (Canopy, Library, Compost) sit alongside it. Historical references in `00_Core_Protocols/`, `Documentation/`, and `Forest_OS/` are retained for provenance and are labeled in [01_Docs/DOCUMENT_AUTHORITY.md](01_Docs/DOCUMENT_AUTHORITY.md). Some automation scripts still contain old path defaults; a script containing an old path is not evidence that the path is deployed — see [01_Docs/FILESYSTEM_MODEL.md](01_Docs/FILESYSTEM_MODEL.md) before changing any runtime behavior.
 
 ---
 
-## 3. The Three-Tier Zero-Bloat Scientific Architecture
+## 2. The forestry workbench in brief
 
-Forest OS provides complete operational parity across **Ubuntu (26.04/26.10 LTS/rolling)** and **Arch Linux / Omarchy**:
+The workbench is a static local web page (`04_Configuration/desktop/forest_workbench.html`) served by `forest-workbench` on port 5483. It carries a **33-entry tool catalog snapshot** across seven domains, field-pipeline recipe examples, a decision wizard, and a services overview.
 
-```
- ┌────────────────────────────────────────────────────────────────────────┐
- │                    FOREST OS WORKBENCH (Port 5483)                     │
- │          Consolidated Web Portal, Field Recipes & Decision Wizard      │
- └───────────────────┬───────────────────────────────┬────────────────────┘
-                     │                               │
- ┌───────────────────▼──────────────┐   ┌────────────▼────────────────────┐
- │  TIER 1: HOST USER-SPACE CLI     │   │  TIER 2: WORKSTATION DESKTOP    │
- │  Isolated uv virtual environments│   │  Native Qt / Wayland / C++      │
- │  • DeepForest (Canopy Crown AI)  │   │  • QGIS (Geographic Info System)│
- │  • BirdNET (Bioacoustics)        │   │  • GDAL / PDAL (Point Clouds)   │
- │  • pyDendron (Tree-Ring GUI)     │   │  • CloudCompare (3D Vegetation) │
- │  • pyfia (USFS FIA Analysis)     │   │  • Desktop Launchers & Icons    │
- └──────────────────────────────────┘   └─────────────────────────────────┘
-                     │
- ┌───────────────────▼────────────────────────────────────────────────────┐
- │  TIER 3: SCIENTIFIC CONTAINER SIDECARS (Docker / Podman)               │
- │  OCI sidecars mounting current working directory, zero host footprint  │
- │  • forest-r-engine (lidR, TreeLS, rGEDI, BIOMASS, allodb, RStudio 8787)│
- │  • forest-sim (22 compiled USFS Open-FVS regional variants, microfvs)  │
- └────────────────────────────────────────────────────────────────────────┘
-```
+* **Catalog source of truth:** [04_Configuration/forestry-tools.json](04_Configuration/forestry-tools.json) (33 tools + 3 supporting applications, reconciled with the `forest-tools` planner catalog). The HTML dataset mirrors it; where they disagree, the JSON governs.
+* **Status labels are snapshots, not telemetry.** Badges such as "Ready" or "verified" in the HTML are documented snapshot values with a source and timestamp; nothing on the page polls a live service. See [01_Docs/FORESTRY_WORKBENCH.md](01_Docs/FORESTRY_WORKBENCH.md) for the evidence-grade model.
+* **Packaging classes:** Tier 1 host user-space CLI (`uv tool`), Tier 2 native desktop GIS, Tier 3 container sidecars. These are packaging categories, not the seven STIM-AI axioms and not the separate action-permission tiers.
 
-### Empirical Sidecar Verification Matrix
-| Sidecar Container | Package / Component | Verified Version | Capability |
-| :--- | :--- | :--- | :--- |
-| `forest-r-engine` | `lidR` | v4.3.3 | Airborne LiDAR CHM, ground classification & tree segmentation |
-| `forest-r-engine` | `TreeLS` | v2.0.6 | Terrestrial Laser Scanning (TLS) stem isolation & DBH extraction |
-| `forest-r-engine` | `rGEDI` | v0.5.7 | NASA GEDI spaceborne full-waveform canopy modeling |
-| `forest-r-engine` | `BIOMASS` | v2.2.7.1 | Aboveground Biomass (AGB) calculation & carbon auditing |
-| `forest-r-engine` | `dplR` | v1.7.9 | Canonical dendrochronological cross-dating & detrending |
-| `forest-r-engine` | `allodb` | v0.0.1.9000 | ForestGEO global allometric biomass equations |
-| `forest-r-engine` | `ForestTools` | v1.0.3 | Variable window filters & marker-controlled watershed crowns |
-| `forest-r-engine` | `hemispheR` | v1.1.8 | Hemispherical fisheye photography canopy openness & LAI |
-| `forest-r-engine` | `treeclim` | v2.0.8.0 | Climate-growth response functions & seasonal correlation |
-| `forest-sim` | Open-FVS | 22 Variants | Full USFS nationwide compiled geographic variant suite |
-| `forest-sim` | `microfvs` | v0.2.0 | FastAPI REST service for cloud and local growth simulations |
+Full details: [01_Docs/FORESTRY_WORKBENCH.md](01_Docs/FORESTRY_WORKBENCH.md).
 
 ---
 
-## 4. Master Consolidated Workbench (Port 5483)
+## 3. Quick start (source orientation)
 
-Forest OS ships with an integrated, sovereign web portal built with the Everforest dark palette, glassmorphism, and an animated mycorrhizal spore canvas:
+This gets you reading and using the workbench from source. It does **not** install every scientific tool.
 
-* **Default URL:** `http://localhost:5483` (Mnemonic: 5483 spells `LIVE` on phone keypad)
-* **Launcher Command:** `forest-workbench`
-* **Features:**
-  * **Executive Telemetry Bar:** Real-time health indicators for Tier 1, Tier 2, and Tier 3 runtimes.
-  * **Comprehensive 33-Tool Catalog:** Filterable across 7 forestry domains with dynamic keyword search and one-click copyable CLI execution snippets.
-  * **5 Production Field Pipelines:** Tested end-to-end recipes for Drone Crown Detection, Airborne LiDAR Processing, Bioacoustics Inventory, Tree Ring Dating, and Stand Growth Modeling.
-  * **Forester's Interactive Decision Wizard:** Correlates input field data (e.g. Drone RGB, TLS, Increment Cores, Audio) with management objectives to prescribe toolchains and generate executable bash scripts.
-  * **Local Services Hub:** Direct access to RStudio Server (`:8787`), microfvs REST API (`:8000`), pyDendron, and BirdNET.
+**Prerequisites:** Linux (Ubuntu LTS or interim releases, or Arch-based systems), Python 3.11+, and either Docker or Podman *only if* you want the Tier 3 containers. Native QGIS/GDAL and the Tier 1 CLI tools are separate installs — see [01_Docs/FORESTRY_WORKBENCH.md](01_Docs/FORESTRY_WORKBENCH.md).
 
----
-
-## 5. FreeDesktop XDG Desktop Integration
-
-Forest OS integrates directly into GNOME, XFCE, and Wayland application menus with custom scalable SVG icons in `04_Configuration/desktop/`:
-
-* `forest-workbench.desktop` &bull; **Forest OS Workbench** (Exec: `forest-workbench`)
-* `forest-birdnet.desktop` &bull; **BirdNET Canopy Analyzer** (Exec: `birdnet-gui`)
-* `forest-pydendron.desktop` &bull; **pyDendron Tree-Ring Analysis** (Exec: `pyDendron`)
-* `forest-rstudio.desktop` &bull; **Forest RStudio Scientific Engine** (Exec: `forest-rstudio-launch`)
-* `forest-sim.desktop` &bull; **Forest-Sim Open-FVS Simulator** (Exec: `forest-sim-launch`)
-* `forest-deepforest.desktop` &bull; **DeepForest Canopy Detection** (Exec: `forest-deepforest-launch`)
-* `forest-qgis.desktop` &bull; **QGIS Forestry Edition** (Exec: `qgis %F`)
-
-Install or remove launchers with single commands:
 ```bash
-./03_Automation_Scripts/install_desktop_launchers.sh
-./03_Automation_Scripts/uninstall_desktop_launchers.sh
-```
+# 1. Explore the source (no build needed)
+$EDITOR 01_Docs/FILESYSTEM_MODEL.md
+$EDITOR 04_Configuration/desktop/forest_workbench.html
 
----
+# 2. Serve the workbench directly from the repo (no install)
+python3 03_Automation_Scripts/forest-workbench --help   # show wrapper options
 
-## 6. Repository Layout
-
-```
-Forest_OS/
-├── 00_Core_Protocols/         # STIM specifications, world models, ingestion pipelines
-├── 01_Docs/                   # Implementation notes, handoff packs, empirical reports
-├── 02_Agent_Definitions/      # Agent charters (Sequoia, Quercus, Sylvan, Umbra/Kai)
-├── 03_Automation_Scripts/     # CLI wrappers, container builders, desktop installers
-│   ├── forest-workbench       # Local web server on port 5483
-│   ├── forest-r               # Headless CLI wrapper for forest-r-engine
-│   ├── forest-sim             # CLI wrapper for Open-FVS 22 regional variants
-│   ├── build_containers.sh    # Multi-container OCI build orchestrator
-│   └── install_desktop_launchers.sh # FreeDesktop integration script
-├── 04_Configuration/          # Container recipes, desktop launchers, and web portal
-│   ├── containers/            # Containerfiles for forest-r-engine & forest-sim
-│   └── desktop/               # forest_workbench.html, .desktop files, and SVG icons
-├── 05_Tests/                  # Automated verification suites (20/20 passing)
-├── Documentation/             # Academic briefs, comparative analyses, and field guides
-├── Forest_OS/                 # Inner agent workspace, sync watchers, and knowledge
-├── CONTRIBUTING.md            # STIM Protocol contribution and Stop Slop requirements
-├── LICENSE                    # MIT License
-├── doc-200.md                 # Centennial Architecture Overview
-├── doc-202.md                 # Agent Charters & Cognitive Topology
-└── doc-210.md                 # Seasonal Cadence operational framework
-```
-
----
-
-## 7. Quick Start Guide
-
-### Prerequisites
-* Linux (Ubuntu 24.04/26.04 LTS or Arch Linux / Omarchy)
-* Docker or Podman
-* Python 3.11+ and `uv` package manager
-
-### 1. Build Container Sidecars
-```bash
-# Build both forest-r-engine and forest-sim
+# 3. Optional, later: build container sidecars (large downloads, minutes of CPU)
 ./03_Automation_Scripts/build_containers.sh all
-```
 
-### 2. Install Desktop Launchers & CLI Helpers
-```bash
+# 4. Optional, later: install desktop launchers.
+#    This symlinks forest-workbench, forest-rstudio-launch, forest-sim-launch and
+#    forest-deepforest-launch into ~/.local/bin and copies .desktop files.
 ./03_Automation_Scripts/install_desktop_launchers.sh
 ```
 
-### 3. Launch the Consolidated Workbench
+**What launcher installation does *not* do:** it does not put `forest-r` or `forest-sim` on your PATH, and it does not install DeepForest, BirdNET, pyDendron, QGIS, or the `forest-tools` planner. Those are separate installs documented in [01_Docs/FORESTRY_WORKBENCH.md](01_Docs/FORESTRY_WORKBENCH.md). The `forest-tools` planner referenced by the workbench wizard is a separately maintained dependency, not bundled in this repository.
+
 ```bash
-# Starts local web server on port 5483 and opens browser
-forest-workbench
+# Once you have separately installed and PATH-configured the wrappers:
+forest-r script.R        # run an R script inside forest-r-engine
+forest-sim variants      # list Open-FVS variants
 ```
 
-### 4. Run CLI Workflows
-```bash
-# Execute R LiDAR script without installing R on host
-forest-r script.R
+### Safety notes (read before serving)
 
-# Query Open-FVS compiled variants
-forest-sim variants
-
-# Run DeepForest tree crown detection in isolated uv environment
-deepforest --input canopy.tif --output crowns.shp
-```
+* The current `forest-workbench` server and the container wrappers (`forest-r`, `forest-sim`) are **not demonstrably loopback-only** by default. The workbench binds all interfaces and the wrappers publish container ports without an explicit `127.0.0.1` host address. On any multi-user or networked machine, verify actual listening addresses (`ss -tlnp`) before assuming localhost-only access, or run behind a firewall you control.
+* The RStudio wrapper uses a static default password and prints it to the terminal; override it via `RSTUDIO_PASSWORD` and treat it as non-secret only if you have changed it.
+* Wrappers mount your **current working directory** into the container with write access. A container sidecar reduces dependency collisions; it is not a security boundary for files you mount, and it does not make the host immune to failures.
+* Do not put credentials in any file under the mounted directory.
 
 ---
 
-## 8. Automated Test Verification
+## 4. Desktop integration
 
-Forest OS enforces test-driven stability across containers, CLI wrappers, desktop entries, and style rules:
+Seven FreeDesktop launchers with SVG icons live in `04_Configuration/desktop/`:
+
+| Launcher | Exec |
+|---|---|
+| Forest OS Workbench | `forest-workbench` |
+| BirdNET Canopy Analyzer | `birdnet-gui` |
+| pyDendron Tree-Ring Analysis | `pyDendron` |
+| Forest RStudio Scientific Engine | `forest-rstudio-launch` |
+| Forest-Sim Open-FVS Simulator | `forest-sim-launch` |
+| DeepForest Canopy Detection | `forest-deepforest-launch` |
+| QGIS Forestry Edition | `qgis %F` |
+
+Creating a launcher creates a menu entry only; it is not evidence the underlying tool is installed.
+
+---
+
+## 5. Agents
+
+The coordination model distinguishes **operating agents** (currently: Bodhi, Hermes, AG, M), **standards** (Sequoia — a constitutional arbiter *standard*, not a running process), and **historical/conceptual archetypes** (Quercus, Sylvan, Umbra/Kai, Arbor as described in doc-202). Detailed charters: [doc-202.md](doc-202.md) and [02_Agent_Definitions/](02_Agent_Definitions/). The older diagram in this README's history gave active roles to retired names; treat agent claims as configuration-dependent and verify against the live system before relying on them.
+
+---
+
+## 6. Platforms and compatibility
+
+* **Current development host (owner-reported):** Ubuntu 26.04 LTS.
+* **Support targets:** Ubuntu LTS and interim releases, and Arch Linux / Omarchy. Ubuntu uses LTS and interim releases; it is not a rolling distribution.
+* **Not a tested claim:** host/guest parity, future-release parity, or "upgrades cannot break the scientific stack". Containerization reduces dependency-collision risk; shared-kernel, driver, and integration failure modes remain.
+* Evidence, skipped checks, and unknowns: [01_Docs/VERIFICATION_AND_COMPATIBILITY.md](01_Docs/VERIFICATION_AND_COMPATIBILITY.md).
+
+---
+
+## 7. Reproducibility posture
+
+Both container recipes currently use `:latest` base images and install GitHub dependencies without pinned revisions. The R install script fails if required packages cannot load, which is a useful guard, but its printed checks are not archived build receipts. Until image digests and package versions are recorded, treat builds as **repeatable-in-practice, not reproducible-by-pin**.
+
+---
+
+## 8. Automated test inventory
+
+The repository contains 20 test functions across three modules (source inventory, not a fresh run result):
+
+| Module | Test functions | What they inspect |
+|---|---|---|
+| `05_Tests/test_cli_wrappers.py` | 7 | bash syntax, CLI help flags, exit codes |
+| `05_Tests/test_container_recipes.py` | 6 | Containerfile directives, package manifests |
+| `05_Tests/test_desktop_launchers.py` | 7 | FreeDesktop validation, SVG icons, server HTTP 200 |
+
+**What this does and does not establish:** these are component-level source/behavior checks. They are not an executed 20/20 run receipt, and they are not evidence that the five field-pipeline recipes have been validated end-to-end or that scientific outputs (canopy detection, biomass, tree rings, growth) are correct. Dated run receipts with passed/failed/skipped counts and host identity belong in [01_Docs/VERIFICATION_AND_COMPATIBILITY.md](01_Docs/VERIFICATION_AND_COMPATIBILITY.md) when they exist; absent receipts are recorded as unknown, not assumed passing.
 
 ```bash
-python3 -m unittest discover -s 05_Tests/ -p "test_*.py" -v
+python3 -m unittest discover -s 05_Tests/ -p "test_*.py"
 ```
 
-* `test_cli_wrappers.py`: 7 passed (bash syntax, CLI help flags, exit codes).
-* `test_container_recipes.py`: 6 passed (Containerfile directives, package manifests).
-* `test_desktop_launchers.py`: 7 passed (FreeDesktop validation, SVG icons, server HTTP 200).
-* **Total: 20 passed, 0 failed.**
+> Note: the desktop test module can start the workbench web server on a fixed port and may skip if a validator is missing. Do not run full test discovery blindly on a machine where that port is in use.
 
 ---
 
-## 9. Code Quality & Governance
+## 9. Document authority
 
-Forest OS adheres to rigorous engineering standards and STIM Layer 0 Governance:
-* **Dense, Direct Prose:** Direct, capable, plain, and disciplined technical documentation. Zero marketing hyperbole, unnecessary fillers, or conversational tropes.
-* **Biological Claims Discipline:** Biological analogies are framed strictly as working hypotheses with explicit kill criteria, never established physical mechanisms.
-* **Substrate Purity:** Host preservation via containerized sidecars and user-space tooling. No uncontained system dependencies or global package pollution.
-* **Two-Tier Execution Policy:** Tier 1 operations are autonomous and idempotent; Tier 2 operations (git push, rm, container rebuilds, external network sends) require explicit human confirmation.
+Where multiple copies of a protocol exist (e.g. `00_Core_Protocols/` vs `Forest_OS/`, `01_Docs/` vs `Documentation/`), [01_Docs/DOCUMENT_AUTHORITY.md](01_Docs/DOCUMENT_AUTHORITY.md) lists the authoritative copy, generated mirrors, and historical duplicates. Do not edit a historical copy expecting it to change behavior.
 
 ---
 
-## 10. Related Repositories
+## 10. Related repositories
 
 | Repository | Purpose |
 |---|---|
 | [stim-core](https://github.com/STIM-Protocol/stim-core) | Loop 1 thermodynamic metrics & Protocol 0 hardware root of trust |
 | [stim-guard](https://github.com/STIM-Protocol/stim-guard) | Epistemic Sieve Membrane & Adrenaline Protocol |
-| [mycelial-brain-mcp](https://github.com/STIM-Protocol/mycelial-brain-mcp) | Vector-graph persistent memory MCP server powering Forest OS |
-| [white-paper](https://github.com/STIM-Protocol/white-paper) | Full STIM-AI v7.0011 architectural specification |
+| [mycelial-brain-mcp](https://github.com/STIM-Protocol/mycelial-brain-mcp) | Vector-graph persistent memory MCP server |
+| [white-paper](https://github.com/STIM-Protocol/white-paper) | Full STIM-AI v7.0011 specification (canonical seven axioms) |
 | [gpd-framework](https://github.com/STIM-Protocol/gpd-framework) | Get Physics Done: computational physics substrate |
 
 ---

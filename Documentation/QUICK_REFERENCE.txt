@@ -1,3 +1,5 @@
+<!-- HISTORICAL COPY: see 01_Docs/DOCUMENT_AUTHORITY.md for the authoritative source. -->
+
 ================================================================================
 FOREST OS - QUICK REFERENCE CARD
 ================================================================================

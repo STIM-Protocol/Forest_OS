@@ -1,3 +1,5 @@
+<!-- HISTORICAL COPY: see 01_Docs/DOCUMENT_AUTHORITY.md for the authoritative source. -->
+
 # Ingestion Pipeline: From Raw Material to Forest Heartwood
 
 **Version:** 1.0.0
@@ -58,7 +60,7 @@ Determine target Forest bucket:
 |--------------|-------------------|---------|
 | Active project with tasks | `001_PROJECTS` | `mycelial-brain-mcp-v2/` |
 | Idea, seed, half-baked concept | `002_IDEAS` | `agents-cli-experiment/` |
-| Person profile, dossier | `003_PEOPLE` | `ryder/education/` |
+| Person profile, dossier | `003_PEOPLE` | `example-person/education/` |
 | Reference material, evergreen | `004_RESOURCES` | `embedding-models-comparison/` |
 | Daily log, insight, journal | `005_JOURNAL` | `2026-04-26-insights/` |
 | Business admin, finance | `006_BUSINESS` | `invoices/q2-2026/` |
@@ -123,7 +125,7 @@ Create the paired files:
 All person-centric materials go under `003_PEOPLE/<person_slug>/`. Create subfolders:
 
 ```
-003_PEOPLE/ryder/
+003_PEOPLE/example-person/
 ├── 01_Profile/           (bio, contact, preferences)
 ├── 02_Education_and_Development/   (school, training, certifications)
 ├── 03_Career/            (jobs, projects, performance reviews)
@@ -136,7 +138,7 @@ Each subfolder can contain multiple Heartwood docs.
 
 ### 2.2 Research Synthesis
 
-When you produce a **research dossier** (like the Ryder analysis):
+When you produce a **research dossier** (like the example person analysis):
 1. Start in `004_RESOURCES/Research/` as `temp_<topic>_bulk.md`
 2. Synthesize into concise Heartwood
 3. Move to final bucket: `003_PEOPLE/<person>/` if person-specific, else `004_RESOURCES/`

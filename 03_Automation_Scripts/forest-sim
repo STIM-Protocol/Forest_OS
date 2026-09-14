@@ -1,4 +1,7 @@
 #!/bin/bash
+# NOTE (FOREST-OS-REPO-ALIGNMENT-001): container ports are published without an explicit
+# loopback host address; reachability depends on runtime/firewall config. Pinning
+# 127.0.0.1 is a separate runtime-hardening change (follow-up R1).
 # Forest OS: forest-sim Host CLI Integration Wrapper
 # Governance: Doc-414 Compliant (Zero em dashes, strict claims discipline)
 

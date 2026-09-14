@@ -1,3 +1,5 @@
+> **HISTORICAL DOCUMENT NOTE (FOREST-OS-REPO-ALIGNMENT-001).** This page predates the current lifecycle vocabulary and uses older names (Greenhouse-era paths, "Standardized Truth & Immutable Memory"). The canonical STIM-AI expansion is **Stasis Through Inferred Memory**; the current filesystem model is [FILESYSTEM_MODEL.md](FILESYSTEM_MODEL.md). Retained for provenance.
+
 ---
 namespace: forest-os.implementation
 cycle: 2026-Q2

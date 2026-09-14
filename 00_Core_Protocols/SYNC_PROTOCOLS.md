@@ -4,6 +4,8 @@
 **Status:** Operational
 **Scope:** Rules for synchronizing data across Forest, Library, Greenhouse, Understory, Compost, and Brain
 
+> **HISTORICAL DOCUMENT (2026-04 era).** This page describes the earlier Greenhouse-era vault vocabulary and paths. The current lifecycle is Seed → Arboretum → Understory → Forest with support zones (00_CANOPY, LIBRARY, COMPOST). Path examples here are quarantined from recommended usage — see [01_Docs/FILESYSTEM_MODEL.md](../01_Docs/FILESYSTEM_MODEL.md) and [01_Docs/DOCUMENT_AUTHORITY.md](../01_Docs/DOCUMENT_AUTHORITY.md). Retained for provenance; do not follow its path instructions on a current machine.
+
 ---
 
 ## 1. Core Sync Principles

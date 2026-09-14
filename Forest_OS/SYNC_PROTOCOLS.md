@@ -1,3 +1,5 @@
+<!-- HISTORICAL COPY: see 01_Docs/DOCUMENT_AUTHORITY.md for the authoritative source. -->
+
 # Sync Protocols: Multi-Vault Coordination
 
 **Version:** 1.0.0
