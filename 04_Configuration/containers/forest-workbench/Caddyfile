@@ -1,0 +1,24 @@
+# Forest OS: Forestry Workbench Caddy Configuration
+# Governance: Doc-414 Compliant (Zero em dashes, strict claims discipline)
+# Port 5483: Mnemonic mapping 5-4-8-3 corresponds to L-I-V-E on standard telephone keypad
+
+:5483 {
+    root * /usr/share/caddy
+    # Health check endpoint for container orchestrators and Nomad
+    handle /api/health {
+        header Content-Type application/json
+        respond `{"status":"ok","service":"forest-workbench","port":5483,"mnemonic":"LIVE","catalog_version":"1.0.0","tools":33}` 200
+    }
+
+    # Direct JSON catalog endpoint
+    handle /api/catalog {
+        rewrite * /forestry-tools.json
+        file_server
+    }
+
+    # Default static file server with fallback
+    handle {
+        try_files {path} {path}/ /index.html
+        file_server
+    }
+}

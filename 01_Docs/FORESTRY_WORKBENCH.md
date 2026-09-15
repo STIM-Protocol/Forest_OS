@@ -59,9 +59,14 @@ These are **packaging categories**, not the seven STIM-AI axioms and not the sep
 |---|---|---|
 | **Tier 1** | Host user-space CLI via `uv tool install --python 3.11 <pkg>` | DeepForest, BirdNET-Analyzer, pyDendron, dplPy, pyfia, pytlidar |
 | **Tier 2** | Native distro packages / Flatpak (APT, Pacman) | QGIS, GDAL, CloudCompare, QField |
-| **Tier 3** | Container sidecars (Docker/Podman) via repo wrappers | `forest-r-engine` (lidR, TreeLS, rGEDI, BIOMASS, dplR, allodb, ForestTools, hemispheR, treeclim), `forest-sim` (Open-FVS, microfvs) |
+| **Tier 3** | Container sidecars (Docker/Podman) via repo recipes and Project Nomad | `forest-workbench` (Caddy 2, sovereign workbench portal, port 5483), `forest-r-engine` (lidR, TreeLS, rGEDI, BIOMASS, dplR, allodb, ForestTools, hemispheR, treeclim), `forest-sim` (Open-FVS, microfvs) |
 
-Tier 3 wrappers mount the current working directory into the container and are documented in the README's safety notes (not loopback-only by default; writable mounts).
+Tier 3 wrappers mount the current working directory into the container and are documented in the README safety notes (not loopback-only by default; writable mounts).
+
+### Port 5483 Mnemonic and Project Nomad Integration
+
+* **Port 5483 Mnemonic:** The sequence `5-4-8-3` spells **LIVE** on a standard telephone alphanumeric keypad (ITU-T E.161), symbolizing sovereign vitality, living ecosystems, and local autonomy.
+* **Project Nomad Custom App:** The workbench runs as a managed container sidecar in [Project Nomad](https://github.com/crosstalk-solutions/project-nomad) under service name `nomad_custom_forest_tools` with icon `IconPlant`. Full details: [01_Docs/NOMAD_INTEGRATION.md](NOMAD_INTEGRATION.md).
 
 ---
 

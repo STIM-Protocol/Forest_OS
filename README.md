@@ -2,7 +2,8 @@
 
 [![STIM-AI](https://img.shields.io/badge/STIM--AI-v7.0011-1a4a2e?style=flat&labelColor=0d2818)](https://github.com/STIM-Protocol/stim-core)
 [![Reference Implementation](https://img.shields.io/badge/Reference-Implementation_v1-brightgreen?style=flat)](https://github.com/STIM-Protocol/Forest_OS)
-[![Workbench Port 5483](https://img.shields.io/badge/Workbench-Port_5483-7fbbb3?style=flat)](04_Configuration/desktop/forest_workbench.html)
+[![Workbench Port 5483](https://img.shields.io/badge/Workbench-Port_5483_(LIVE)-7fbbb3?style=flat)](04_Configuration/desktop/forest_workbench.html)
+[![Nomad Integrated](https://img.shields.io/badge/Nomad-Custom_App_Ready-388e3c?style=flat)](01_Docs/NOMAD_INTEGRATION.md)
 [![License: MIT](https://img.shields.io/badge/License-MIT-green.svg)](LICENSE)
 [![Tests](https://img.shields.io/badge/Tests-20_function_source_inventory_(not_a_fresh_run)-83c092?style=flat)](#automated-test-inventory)
 
@@ -74,13 +75,15 @@ Older documents in this repository (2026-04 era) used a **Greenhouse / Garden / 
 
 ## 2. The forestry workbench in brief
 
-The workbench is a static local web page (`04_Configuration/desktop/forest_workbench.html`) served by `forest-workbench` on port 5483. It carries a **33-entry tool catalog snapshot** across seven domains, field-pipeline recipe examples, a decision wizard, and a services overview.
+The workbench is a local web application (`04_Configuration/desktop/forest_workbench.html`) served on port 5483. It carries a **33-entry tool catalog snapshot** across seven domains, field-pipeline recipe examples, a decision wizard, and a services overview.
 
+* **Port 5483 mnemonic:** Port 5483 was specifically chosen because the sequence **5-4-8-3 spells LIVE** on a standard telephone alphanumeric keypad (ITU-T E.161: 5=L, 4=I, 8=V, 3=E), symbolizing living ecosystems, sovereign vitality, and autonomous live state.
 * **Catalog source of truth:** [04_Configuration/forestry-tools.json](04_Configuration/forestry-tools.json) (33 tools + 3 supporting applications, reconciled with the `forest-tools` planner catalog). The HTML dataset mirrors it; where they disagree, the JSON governs.
+* **Project Nomad Custom App:** The workbench is packaged as a sovereign Caddy 2 container sidecar (`forest-workbench:1.0.0`) and integrated as a native Custom App in [Project Nomad](https://github.com/crosstalk-solutions/project-nomad) under service name `nomad_custom_forest_tools` with icon `IconPlant`. Full integration receipt: [01_Docs/NOMAD_INTEGRATION.md](01_Docs/NOMAD_INTEGRATION.md).
 * **Status labels are snapshots, not telemetry.** Badges such as "Ready" or "verified" in the HTML are documented snapshot values with a source and timestamp; nothing on the page polls a live service. See [01_Docs/FORESTRY_WORKBENCH.md](01_Docs/FORESTRY_WORKBENCH.md) for the evidence-grade model.
-* **Packaging classes:** Tier 1 host user-space CLI (`uv tool`), Tier 2 native desktop GIS, Tier 3 container sidecars. These are packaging categories, not the seven STIM-AI axioms and not the separate action-permission tiers.
+* **Packaging classes:** Tier 1 host user-space CLI (`uv tool`), Tier 2 native desktop GIS, Tier 3 container sidecars (`forest-workbench`, `forest-r-engine`, `forest-sim`).
 
-Full details: [01_Docs/FORESTRY_WORKBENCH.md](01_Docs/FORESTRY_WORKBENCH.md).
+Full details: [01_Docs/FORESTRY_WORKBENCH.md](01_Docs/FORESTRY_WORKBENCH.md) and [01_Docs/NOMAD_INTEGRATION.md](01_Docs/NOMAD_INTEGRATION.md).
 
 ---
 
@@ -88,18 +91,19 @@ Full details: [01_Docs/FORESTRY_WORKBENCH.md](01_Docs/FORESTRY_WORKBENCH.md).
 
 This gets you reading and using the workbench from source. It does **not** install every scientific tool.
 
-**Prerequisites:** Linux (Ubuntu LTS or interim releases, or Arch-based systems), Python 3.11+, and either Docker or Podman *only if* you want the Tier 3 containers. Native QGIS/GDAL and the Tier 1 CLI tools are separate installs — see [01_Docs/FORESTRY_WORKBENCH.md](01_Docs/FORESTRY_WORKBENCH.md).
+**Prerequisites:** Linux (Ubuntu LTS or interim releases, or Arch-based systems), Python 3.11+, and either Docker or Podman *only if* you want the Tier 3 containers. Native QGIS/GDAL and the Tier 1 CLI tools are separate installs (see [01_Docs/FORESTRY_WORKBENCH.md](01_Docs/FORESTRY_WORKBENCH.md)).
 
 ```bash
 # 1. Explore the source (no build needed)
 $EDITOR 01_Docs/FILESYSTEM_MODEL.md
 $EDITOR 04_Configuration/desktop/forest_workbench.html
 
-# 2. Serve the workbench directly from the repo (no install)
+# 2. Serve the workbench directly from the repo on host (no install)
 python3 03_Automation_Scripts/forest-workbench --help   # show wrapper options
 
-# 3. Optional, later: build container sidecars (large downloads, minutes of CPU)
-./03_Automation_Scripts/build_containers.sh all
+# 3. Build container sidecars
+./03_Automation_Scripts/build_containers.sh workbench   # build lightweight Nomad/Caddy portal (port 5483)
+./03_Automation_Scripts/build_containers.sh all         # build all 3 containers (workbench, r-engine, sim)
 
 # 4. Optional, later: install desktop launchers.
 #    This symlinks forest-workbench, forest-rstudio-launch, forest-sim-launch and

@@ -34,9 +34,10 @@ Usage:
   bash build_containers.sh [TARGET] [OPTIONS]
 
 Targets:
-  all               Build both forest-r-engine and forest-sim (default)
+  all               Build forest-r-engine, forest-sim, and forest-workbench (default)
   r-engine          Build forest-r-engine only
   sim               Build forest-sim only
+  workbench         Build forest-workbench (Nomad custom app portal, port 5483 / LIVE)
 
 Options:
   --all-variants    Compile all 20 Open-FVS variants for forest-sim (default: western)
@@ -51,7 +52,7 @@ INSTALL_SYMLINKS=true
 
 for arg in "$@"; do
     case "$arg" in
-        all|r-engine|sim)
+        all|r-engine|sim|workbench)
             TARGET="$arg"
             ;;
         --all-variants)
@@ -119,17 +120,39 @@ build_sim() {
     echo "[PASS] forest-sim build completed."
 }
 
+build_workbench() {
+    echo "======================================================================"
+    echo " Building Container Image: forest-workbench"
+    echo " Context: ${WORKSPACE_ROOT}"
+    echo " Port: 5483 (mnemonic: 5-4-8-3 = LIVE on telephone keypad)"
+    echo "======================================================================"
+    if [ ! -d "${CONFIG_DIR}/forest-workbench" ]; then
+        echo "Error: Directory ${CONFIG_DIR}/forest-workbench does not exist." >&2
+        return 1
+    fi
+    "${RUNTIME}" build \
+        -t forest-workbench \
+        -t forest-workbench:1.0.0 \
+        -f "${CONFIG_DIR}/forest-workbench/Containerfile" \
+        "${WORKSPACE_ROOT}"
+    echo "[PASS] forest-workbench build completed."
+}
+
 # Main execution dispatch
 case "${TARGET}" in
     all)
         build_r_engine
         build_sim
+        build_workbench
         ;;
     r-engine)
         build_r_engine
         ;;
     sim)
         build_sim
+        ;;
+    workbench)
+        build_workbench
         ;;
 esac
 

@@ -1,0 +1,33 @@
+# Forest OS: Tier 3 Scientific Container Sidecar (forest-workbench)
+# Governance: Doc-414 Compliant (Zero em dashes, strict claims discipline)
+# Target Stack: Caddy 2 static file server hosting the 33-tool Sovereign Forestry Workbench
+# Port 5483: Mnemonic mapping 5-4-8-3 corresponds to L-I-V-E on standard telephone keypad
+
+FROM caddy:2
+
+LABEL org.opencontainers.image.title="forest-workbench" \
+      org.opencontainers.image.description="Forest OS Sovereign Forestry Workbench for Linux & Project Nomad" \
+      org.opencontainers.image.vendor="Forest OS Project" \
+      org.opencontainers.image.authors="George Steward <george.steward@myceliate.internal>" \
+      org.opencontainers.image.version="1.0.0"
+
+# Copy workbench HTML as index.html and forest_workbench.html
+COPY 04_Configuration/desktop/forest_workbench.html /usr/share/caddy/index.html
+COPY 04_Configuration/desktop/forest_workbench.html /usr/share/caddy/forest_workbench.html
+
+# Copy desktop and tool SVG icons
+COPY 04_Configuration/desktop/icons /usr/share/caddy/icons
+
+# Copy canonical machine-readable 33-tool catalog
+COPY 04_Configuration/forestry-tools.json /usr/share/caddy/forestry-tools.json
+
+# Copy documentation and evidence models
+COPY 01_Docs /usr/share/caddy/01_Docs
+
+# Copy Caddyfile configuration
+COPY 04_Configuration/containers/forest-workbench/Caddyfile /etc/caddy/Caddyfile
+
+# Expose canonical port 5483 (mnemonic: LIVE)
+EXPOSE 5483
+
+CMD ["caddy", "run", "--config", "/etc/caddy/Caddyfile", "--adapter", "caddyfile"]

@@ -317,10 +317,10 @@ forest-sim serve</div>
           <div>
             <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 10px;">
               <span class="badge badge-green"><span class="pulse-dot"></span> Active</span>
-              <span class="badge badge-purple">Port 5483</span>
+              <span class="badge badge-purple" title="Port 5483: 5-4-8-3 corresponds to L-I-V-E on standard telephone keypad">Port 5483 (LIVE)</span>
             </div>
             <h3 style="color: #fff; margin-bottom: 6px;">Forest OS Workbench</h3>
-            <p style="color: var(--text-muted); font-size: 0.86rem; margin-bottom: 12px;">This sovereign web portal. Provides consolidated tool documentation, field execution pipelines, and interactive workflows.</p>
+            <p style="color: var(--text-muted); font-size: 0.86rem; margin-bottom: 12px;">Sovereign web portal. Port 5483 was specifically chosen because 5-4-8-3 spells LIVE on a standard telephone alphanumeric keypad, symbolizing living ecosystems and autonomous live state. Provides consolidated tool documentation, field execution pipelines, and interactive workflows.</p>
             <div class="code-snippet-box">
               <span class="code-text">http://localhost:5483</span>
             </div>
@@ -407,6 +407,22 @@ forest-sim serve</div>
           </div>
           <button class="service-btn" onclick="copySnippet('qgis')">Copy Launch Command</button>
         </div>
+
+        <!-- Service 7: Project Nomad Server -->
+        <div class="service-card active-service">
+          <div>
+            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 10px;">
+              <span class="badge badge-green"><span class="pulse-dot"></span> Nomad Managed</span>
+              <span class="badge badge-blue">Port 8080</span>
+            </div>
+            <h3 style="color: #fff; margin-bottom: 6px;">Project Nomad Server</h3>
+            <p style="color: var(--text-muted); font-size: 0.86rem; margin-bottom: 12px;">Offline-capable edge server infrastructure managing local containerized microservices and hosting the Forest Tools custom app tile.</p>
+            <div class="code-snippet-box">
+              <span class="code-text">http://localhost:8080</span>
+            </div>
+          </div>
+          <a href="http://localhost:8080" target="_blank" class="service-btn">Open Nomad (Port 8080)</a>
+        </div>
       </div>
     </div>
 
@@ -491,7 +507,7 @@ forest-sim serve</div>
 
     <!-- Footer -->
     <footer>
-      <p>Forest OS &bull; Sovereign Forestry Workbench &bull; STIM Protocol Reference Implementation &bull; <a href="http://localhost:5483">localhost:5483</a></p>
+      <p>Forest OS &bull; Sovereign Forestry Workbench &bull; STIM Protocol Reference Implementation &bull; Port 5483 (mnemonic: 5-4-8-3 = L-I-V-E) &bull; Managed on <a href="http://localhost:8080" target="_blank">Project Nomad</a></p>
     </footer>
   </div>
 
