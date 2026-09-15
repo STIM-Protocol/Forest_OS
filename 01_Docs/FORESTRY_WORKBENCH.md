@@ -21,10 +21,10 @@ An earlier September 8 planning effort referenced a 36-tool count that included 
 | Inventory | Count | What it is |
 |---|---|---|
 | `forestry-tools.json` tools | **33** | End-user forestry tools across 7 domains |
-| `forestry-tools.json` supporting_applications | **3** | Infrastructure applications (e.g. QGIS as a platform) |
+| `forestry-tools.json` supporting_applications | **4** | Infrastructure applications (QGIS, GDAL, CloudCompare, Forest Search) |
 | Earlier installer/foundations list | 36 | The 33 tools **plus foundation packages** counted as line items |
 
-**Computed total: 33 + 3 = 36 items only when supporting applications are included with tools; the tools-only count is 33.** Do not force either number onto the other inventory. Foundation packages remain separately identifiable in the `forest-tools` planner's foundations list and are not merged into the 33.
+**Computed total: 33 tools + 4 supporting applications = 37 items when supporting applications are included; the domain tools count remains strictly 33.** Foundation packages remain separately identifiable in the `forest-tools` planner's foundations list and are not merged into the 33.
 
 ### Domains (computed from the JSON, count of tools)
 

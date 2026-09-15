@@ -2,7 +2,7 @@
 # NOTE (FOREST-OS-REPO-ALIGNMENT-001): container ports are published without an explicit
 # loopback host address; reachability depends on runtime/firewall config. Pinning
 # 127.0.0.1:8787 is a separate runtime-hardening change (follow-up R1). RStudio default
-# password is static and printed — override via RSTUDIO_PASSWORD (follow-up R1).
+# password is static and printed: override via RSTUDIO_PASSWORD (follow-up R1).
 # Forest OS: forest-r Host CLI Integration Wrapper
 # Governance: Doc-414 Compliant (Zero em dashes, strict claims discipline)
 

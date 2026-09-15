@@ -1,0 +1,21 @@
+{
+  "name": "forest_search",
+  "description": "Semantic search over the local Forest index. Returns top-k chunks with file path, heading, snippet, score. Read-only and offline.",
+  "parameters": {
+    "properties": {
+      "k": {
+        "default": 5,
+        "description": "Number of results (default 5, maximum 20)",
+        "type": "integer"
+      },
+      "query": {
+        "description": "Natural-language search query",
+        "type": "string"
+      }
+    },
+    "required": [
+      "query"
+    ],
+    "type": "object"
+  }
+}

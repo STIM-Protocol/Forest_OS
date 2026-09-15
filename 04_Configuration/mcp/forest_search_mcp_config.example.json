@@ -1,0 +1,64 @@
+{
+  "description": "Example client configurations for forest_search MCP server across local agent environments. Doc-414 compliant.",
+  "antigravity": {
+    "mcpServers": {
+      "forest_search": {
+        "command": "/usr/bin/env",
+        "args": [
+          "python3",
+          "/home/george/Myceliate_Master/ARBORETUM/Active/Forest_OS/03_Automation_Scripts/forest-search/forest_search_mcp.py"
+        ],
+        "env": {
+          "FOREST_VAULT_ROOT": "/home/george/Myceliate_Master",
+          "FOREST_INDEX_DB": "/home/george/Myceliate_Master/UNDERSTORY/SYSTEM/forest-index/forest_index.db",
+          "OLLAMA_ENDPOINT": "http://127.0.0.1:11434/api/embed",
+          "OLLAMA_MODEL": "nomic-embed-text"
+        }
+      }
+    }
+  },
+  "hermes": {
+    "mcp_servers": {
+      "forest_search": {
+        "command": "/usr/bin/env python3 /home/george/Myceliate_Master/ARBORETUM/Active/Forest_OS/03_Automation_Scripts/forest-search/forest_search_mcp.py",
+        "args": [],
+        "env": {
+          "FOREST_VAULT_ROOT": "/home/george/Myceliate_Master",
+          "FOREST_INDEX_DB": "/home/george/Myceliate_Master/UNDERSTORY/SYSTEM/forest-index/forest_index.db"
+        }
+      }
+    }
+  },
+  "openclaw": {
+    "mcp": {
+      "servers": {
+        "forest_search": {
+          "type": "stdio",
+          "command": "/usr/bin/env",
+          "args": [
+            "python3",
+            "/home/george/Myceliate_Master/ARBORETUM/Active/Forest_OS/03_Automation_Scripts/forest-search/forest_search_mcp.py"
+          ],
+          "env": {
+            "FOREST_VAULT_ROOT": "/home/george/Myceliate_Master",
+            "FOREST_INDEX_DB": "/home/george/Myceliate_Master/UNDERSTORY/SYSTEM/forest-index/forest_index.db"
+          }
+        }
+      }
+    }
+  },
+  "claude_desktop": {
+    "mcpServers": {
+      "forest_search": {
+        "command": "python3",
+        "args": [
+          "/home/george/Myceliate_Master/ARBORETUM/Active/Forest_OS/03_Automation_Scripts/forest-search/forest_search_mcp.py"
+        ],
+        "env": {
+          "FOREST_VAULT_ROOT": "/home/george/Myceliate_Master",
+          "FOREST_INDEX_DB": "/home/george/Myceliate_Master/UNDERSTORY/SYSTEM/forest-index/forest_index.db"
+        }
+      }
+    }
+  }
+}

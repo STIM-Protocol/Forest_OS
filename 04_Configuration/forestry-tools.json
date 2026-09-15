@@ -57,6 +57,23 @@
       "arch_package": "cloudcompare",
       "readiness": "qualified",
       "constraints": "Standard distro package available in Ubuntu universe (2.13.2+) and Arch extra. Flatpak alternative available."
+    },
+    {
+      "id": "forest-search",
+      "name": "Forest Search & Semantic Index",
+      "group": "supporting",
+      "domain": "Local Knowledge Infrastructure",
+      "upstream_url": "https://github.com/STIM-Protocol/Forest_OS",
+      "license": "MIT",
+      "tier": "Tier 1 (Host CLI & MCP Stdio)",
+      "install_method": "source-uv",
+      "ubuntu_package": "sqlite3",
+      "ubuntu_additional_packages": [
+        "ollama"
+      ],
+      "arch_package": "sqlite",
+      "readiness": "qualified",
+      "constraints": "Requires local Ollama daemon with nomic-embed-text model and sqlite-vec extension. Read-only query execution over local vault."
     }
   ],
   "tools": [
